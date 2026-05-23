@@ -1,0 +1,67 @@
+<% layout("/layouts/boilerplate") %>
+<div class="wander-show-page">
+
+    <div class="wander-show-card">
+
+        <!-- IMAGE -->
+        <div class="wander-image-wrapper">
+
+            <img 
+                src="<%= post.image %>"
+                class="wander-show-img"
+                alt="travel image"
+            >
+
+        </div>
+
+        <!-- CONTENT -->
+        <div class="wander-show-content">
+
+            <div class="wander-top">
+
+                <span class="wander-badge">
+                    🌍 Wander Moment
+                </span>
+
+                <h1 class="wander-title">
+                    Travel Story ✨
+                </h1>
+
+            </div>
+
+            <p class="wander-caption">
+                <%= post.caption %>
+            </p>
+
+            <div class="wander-location-box">
+
+                <span class="location-icon">📍</span>
+
+                <span class="location-text">
+                    <%= post.location %>
+                </span>
+
+            </div>
+
+<div class="wander-author">
+
+    <span>Posted by</span>
+
+    <strong>
+        <%= post.author?.username || "Wander User" %>
+    </strong>
+
+</div>
+            <div class="wander-actions">
+
+                <a href="/community" class="back-btn">
+                    ← Back to Moments
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

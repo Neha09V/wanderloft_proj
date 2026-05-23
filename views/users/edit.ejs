@@ -1,0 +1,59 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-5" style="max-width:700px;">
+
+   <h2 class="mb-4 text-center">
+      Edit Profile
+   </h2>
+
+   <form
+      action="/profile/<%= user._id %>?_method=PUT"
+      method="POST"
+      enctype="multipart/form-data"
+   >
+
+      <div class="mb-3">
+         <label class="form-label">Username</label>
+
+         <input
+            type="text"
+            class="form-control"
+            name="username"
+            value="<%= user.username %>"
+            required
+         >
+      </div>
+
+      <div class="mb-3">
+         <label class="form-label">Bio</label>
+
+         <textarea
+            class="form-control"
+            rows="4"
+            name="bio"
+            maxlength="100"
+         ><%= user.bio %></textarea>
+      </div>
+
+      <div class="mb-3">
+
+         <label class="form-label">
+            Profile Image
+         </label>
+
+         <input
+            type="file"
+            class="form-control"
+            name="profileImage"
+            accept="image/*"
+         >
+
+      </div>
+
+      <button class="btn btn-dark w-100">
+         Update Profile
+      </button>
+
+   </form>
+
+</div>

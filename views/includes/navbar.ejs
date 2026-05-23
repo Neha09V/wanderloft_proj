@@ -1,0 +1,196 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+
+        <!-- LOGO -->
+        <a class="navbar-brand" href="/listings">
+            <img
+                src="/images/Wanderloftimg.png"
+                alt="WanderLoft"
+                class="wanderloft-icon"
+                height="40px"
+                width="40px"
+            >
+        </a>
+
+        <!-- WEBSITE TITLE -->
+        <div class="navbar-nav web-title">
+            <a class="nav-link" id="web-title" href="/listings">
+                <b>WanderLoft</b>
+            </a>
+        </div>
+
+        <!-- MOBILE TOGGLER -->
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- NAVBAR CONTENT -->
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+            <!-- SEARCH -->
+            <div class="nav-search nav-hovernav-search-search">
+                <form
+                    class="d-flex"
+                    role="search"
+                    action="/listings/search"
+                    method="get"
+                    id="searchBox"
+                >
+
+                    <input
+                        class="form-control me-2 search-inp"
+                        type="search"
+                        placeholder="Search Location | Title | Price"
+                        aria-label="Search"
+                        name="q"
+                        id="mySearchInput"
+                        required
+                    />
+
+                    <button class="btn search-btn" type="submit" id="search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        Search
+                    </button>
+
+                </form>
+            </div>
+
+            <!-- RIGHT SIDE NAV -->
+            <div class="navbar-nav">
+
+                <!-- DROPDOWN -->
+                <div class="dropdown">
+
+                    <button
+                        class="btn btn-success dropdown-toggle"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+                        <i class="fa-solid fa-circle-user"></i>
+                    </button>
+
+                    <ul class="dropdown-menu">
+
+                        <!-- IF USER NOT LOGGED IN -->
+                        <% if(!currUser) { %>
+
+                            <a class="nav-link" href="/signup">
+                                <i class="fa-solid fa-user-plus"></i>
+                                &nbsp;&nbsp;<b>Sign up</b>
+                            </a>
+
+                            <a class="nav-link" href="/login">
+                                <i class="fa-solid fa-user-check"></i>
+                                &nbsp;&nbsp;<b>Log in</b>
+                            </a>
+
+                        <% } %>
+
+                        <!-- IF USER LOGGED IN -->
+                        <% if(currUser) { %>
+
+                            <h6 class="mt-1 nav-link">
+                                <b>
+                                    <i class="fa-solid fa-user"></i>
+                                    &nbsp;&nbsp;<%= currUser.username %>
+                                </b>
+                            </h6>
+
+                            <a
+                                class="nav-link"
+                                href="/profile/<%= currUser._id %>"
+                            >
+                                <i class="fa-solid fa-id-badge"></i>
+                                &nbsp;&nbsp;<b>Profile</b>
+                            </a>
+
+                            <a class="nav-link" href="/logout">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                &nbsp;&nbsp;<b>Log out</b>
+                            </a>
+
+                        <% } %>
+
+                        <hr />
+
+                        <!-- CREATE LISTING -->
+                        <a class="nav-link" href="/listings/new">
+                            <strong>
+                                <i class="fa-solid fa-circle-plus"></i>
+                                &nbsp;&nbsp;WanderLoft your home
+                            </strong>
+                        </a>
+
+                        <a class="nav-link" href="/community">
+    <i class="fa-solid fa-people-group"></i>
+    &nbsp;&nbsp;<strong>Wander Moments</strong>
+</a>
+
+
+                    </ul>
+
+                </div>
+
+                <!-- RESPONSIVE SECTION -->
+                <div id="responsive-registration">
+
+                    <!-- NOT LOGGED IN -->
+                    <% if(!currUser) { %>
+
+                        <a class="nav-link" href="/signup">
+                            <i class="fa-solid fa-user-plus"></i>
+                            &nbsp;&nbsp;<b>Sign up</b>
+                        </a>
+
+                        <a class="nav-link" href="/login">
+                            <i class="fa-solid fa-user-check"></i>
+                            &nbsp;&nbsp;<b>Log in</b>
+                        </a>
+
+                    <% } %>
+
+                    <!-- LOGGED IN -->
+                    <% if(currUser) { %>
+
+                        <h6 class="mt-1 nav-link">
+                            <b>
+                                <i class="fa-solid fa-user"></i>
+                                &nbsp;&nbsp;<%= currUser.username %>
+                            </b>
+                        </h6>
+
+                        <a
+                            class="nav-link"
+                            href="/profile/<%= currUser._id %>"
+                        >
+                            <i class="fa-solid fa-id-badge"></i>
+                            &nbsp;&nbsp;<b>Profile</b>
+                        </a>
+
+                        <a class="nav-link" href="/logout">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            &nbsp;&nbsp;<b>Log out</b>
+                        </a>
+
+                    <% } %>
+
+                    <!-- CREATE LISTING -->
+                    <a class="nav-link" href="/listings/new">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        &nbsp;&nbsp;<strong>WanderLoft your home</strong>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</nav>

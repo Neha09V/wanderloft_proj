@@ -1,0 +1,96 @@
+<div class="quiz-page">
+  <div class="quiz-header">
+    <div class="quiz-brand">🌍 Wander</div>
+    <div class="progress-track">
+      <div class="progress-fill" style="width: <%= progressPercent || 0 %>%"></div>
+    </div>
+    <div class="q-counter"><%= currentQ %> / <%= totalQ %></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="emoji-wrap"><%= challenge.emoji %></div>
+    <h2 class="question"><%= challenge.question %></h2>
+
+    <% if (challenge.hint) { %>
+      <div class="hint">💡 <%= challenge.hint %></div>
+    <% } %>
+
+   
+<div class="options">
+  <% const letters = ['A','B','C','D']; %>
+
+  <% challenge.options.forEach((opt, i) => { %>
+
+    <button
+      class="option-btn"
+      data-answer="<%= challenge.answer %>"
+      data-explanation="<%= challenge.explanation %>"
+      onclick="checkAnswer(this)"
+    >
+      <span class="letter"><%= letters[i] %></span>
+      <span><%= opt %></span>
+    </button>
+
+  <% }) %>
+</div>
+    <div id="result" class="result"></div>
+
+    <div class="quiz-footer">
+      <div class="score-pill">⭐ <span id="score">0</span> correct</div>
+      <a href="/challenge" class="next-btn" id="next-btn">Next →</a>
+    </div>
+  </div>
+</div>
+<script>
+function checkAnswer(btn) {
+
+  if (btn.disabled) return;
+
+  const correct = btn.dataset.answer;
+  const explanation = btn.dataset.explanation;
+
+  const chosen =
+    btn.querySelector('span:not(.letter)').textContent.trim();
+
+  const isCorrect = chosen === correct;
+
+  const result = document.getElementById('result');
+
+  const allBtns =
+    document.querySelectorAll('.option-btn');
+
+  allBtns.forEach(b => {
+
+    b.disabled = true;
+
+    const label =
+      b.querySelector('span:not(.letter)')
+       .textContent
+       .trim();
+
+    if (label === correct) {
+      b.classList.add('correct');
+    }
+
+    else if (b === btn && !isCorrect) {
+      b.classList.add('wrong');
+    }
+
+    else {
+      b.classList.add('dimmed');
+    }
+
+  });
+
+  result.className =
+    `result show ${isCorrect ? 'correct' : 'wrong'}`;
+
+  result.textContent = isCorrect
+    ? `✅ Correct! ${explanation}`
+    : `❌ Not quite — ${explanation}`;
+
+  document
+    .getElementById('next-btn')
+    .classList.add('visible');
+}
+</script>
