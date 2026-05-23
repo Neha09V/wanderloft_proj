@@ -1,10 +1,10 @@
 const User = require("../models/user");
 
-module.exports.renderSignupForm = (req, res) => {
+const renderSignupForm = (req, res) => {
   res.render("users/signup");
 };
 
-module.exports.signup = async (req, res, next) => {
+const signup = async (req, res, next) => {
   try {
     let { username, email, password } = req.body;
 
@@ -13,36 +13,43 @@ module.exports.signup = async (req, res, next) => {
     const registeredUser = await User.register(newUser, password);
 
     req.login(registeredUser, (err) => {
-      if (err) {
-        return next(err);
-      }
+      if (err) return next(err);
       req.flash("success", "Welcome to WanderLoft!");
       res.redirect("/listings");
     });
-  } catch (error) {
-    req.flash("error", error.message);
+  } catch (err) {
+    req.flash("error", err.message);
     res.redirect("/signup");
   }
 };
 
-module.exports.renderLoginForm = (req, res) => {
+const renderLoginForm = (req, res) => {
   res.render("users/login");
 };
 
-module.exports.login = async (req, res) => {
-  req.flash("success", "Welcome back to WanderLoft!");
-  let redirectUrl = res.locals.redirectUrl || "/listings";
-  res.redirect(redirectUrl);
+const login = (req, res) => {
+  req.flash("success", "Welcome back!");
+  res.redirect("/listings");
 };
 
-module.exports.renderForgotForm = (req, res) => {
+const redirect = (req, res) => {
+  res.redirect("/listings");
+};
+
+const logout = (req, res, next) => {
+  req.logout((err) => {
+    if (err) return next(err);
+    req.flash("success", "Logged out!");
+    res.redirect("/listings");
+  });
+};
+
+const renderForgotForm = (req, res) => {
   res.render("users/forgotPassword");
 };
 
-module.exports.handleForgotPassword = async (req, res) => {
-  const { email } = req.body;
-
-  const user = await User.findOne({ email });
+const handleForgotPassword = async (req, res) => {
+  const user = await User.findOne({ email: req.body.email });
 
   if (!user) {
     req.flash("error", "User not found!");
@@ -52,9 +59,8 @@ module.exports.handleForgotPassword = async (req, res) => {
   res.redirect(`/reset-password/${user._id}`);
 };
 
-module.exports.renderResetForm = async (req, res) => {
-  const { id } = req.params;
-  const user = await User.findById(id);
+const renderResetForm = async (req, res) => {
+  const user = await User.findById(req.params.id);
 
   if (!user) {
     req.flash("error", "Invalid user!");
@@ -64,46 +70,30 @@ module.exports.renderResetForm = async (req, res) => {
   res.render("users/resetPassword", { user });
 };
 
-module.exports.resetPassword = async (req, res) => {
+const resetPassword = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
 
-   try {
+    await user.setPassword(req.body.password);
+    await user.save();
 
-      const { id } = req.params;
-      const { password } = req.body;
-
-      const user = await User.findById(id);
-
-      if (!user) {
-
-         req.flash("error", "User not found!");
-         return res.redirect("/forgot-password");
-
-      }
-
-      await user.setPassword(password);
-
-      await user.save();
-
-      req.flash("success", "Password updated successfully!");
-
-      res.redirect("/login");
-
-   } catch (err) {
-
-      req.flash("error", "Something went wrong!");
-
-      res.redirect("/forgot-password");
-
-   }
-
+    req.flash("success", "Password updated!");
+    res.redirect("/login");
+  } catch (err) {
+    req.flash("error", "Something went wrong!");
+    res.redirect("/forgot-password");
+  }
 };
 
-module.exports.logout = (req, res, next) => {
-  req.logout((err) => {
-    if (err) {
-      return next(err);
-    }
-    req.flash("success", "You are logged out!");
-    res.redirect("/listings");
-  });
+module.exports = {
+  renderSignupForm,
+  signup,
+  renderLoginForm,
+  login,
+  redirect,
+  logout,
+  renderForgotForm,
+  handleForgotPassword,
+  renderResetForm,
+  resetPassword,
 };

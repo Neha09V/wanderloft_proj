@@ -13,7 +13,8 @@ const { saveRedirectUrl } = require("../middleware");
  
 router.route("/")
     .get(userController.redirect); 
-  router
+    
+router
 .route("/signup")
 .get( userController.renderSignupForm) 
 .post(wrapAsync(userController.signup));
