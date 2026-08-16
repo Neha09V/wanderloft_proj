@@ -1,0 +1,408 @@
+/* =========================================================
+   FOOTER DESIGN 1
+   MAIN / EXPLORE FOOTER
+   Used on: /home, /listings
+========================================================= */
+
+.wander-footer {
+    width: 100%;
+    background: #111;
+    color: #fff;
+    border-top: 1px solid #222;
+    padding: 22px 0 10px;
+}
+
+.wander-footer .footer-main {
+    display: grid;
+    grid-template-columns: 1.6fr repeat(4, 1fr);
+    gap: 25px;
+    padding-bottom: 18px;
+}
+
+/* BRAND */
+
+.wander-footer .footer-brand h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin: 0 0 6px;
+}
+
+.wander-footer .footer-brand p {
+    color: #ccc;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    margin: 0 0 4px;
+}
+
+.wander-footer .footer-tagline {
+    max-width: 240px;
+    color: #888 !important;
+    font-size: 0.68rem !important;
+    line-height: 1.35 !important;
+    margin-top: 7px !important;
+}
+
+/* COLUMNS */
+
+.wander-footer .footer-column h5 {
+    color: #eee;
+    font-size: 0.68rem;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    margin: 2px 0 8px;
+}
+
+.wander-footer .footer-column a {
+    display: block;
+    color: #999;
+    font-size: 0.72rem;
+    margin-bottom: 5px;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.wander-footer .footer-column a:hover {
+    color: #fff;
+    transform: translateX(2px);
+}
+
+/* DIVIDER */
+
+.wander-footer .footer-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin-bottom: 10px;
+}
+
+/* BOTTOM */
+
+.wander-footer .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    color: #777;
+    font-size: 0.65rem;
+}
+
+.wander-footer .footer-bottom-links {
+    display: flex;
+    gap: 12px;
+}
+
+.wander-footer .footer-bottom-links a {
+    color: #777;
+    font-size: 0.65rem;
+    text-decoration: none;
+}
+
+.wander-footer .footer-bottom-links a:hover {
+    color: #fff;
+}
+
+/* SOCIAL */
+
+.wander-footer .footer-socials {
+    display: flex;
+    align-items: center;
+}
+
+.wander-footer .f-info-socials {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wander-footer .f-info-socials i {
+    font-size: 0.8rem;
+    transition: 0.2s ease;
+}
+
+.wander-footer .f-info-socials i:hover {
+    transform: translateY(-2px);
+    opacity: 0.7;
+}
+
+.wander-footer .footer-made {
+    color: #777;
+    font-size: 0.65rem;
+}
+
+
+/* =========================================================
+   DESIGN 1 — MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .wander-footer {
+        padding: 20px 0 10px;
+    }
+
+    .wander-footer .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        padding-bottom: 15px;
+    }
+
+    .wander-footer .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .wander-footer .footer-brand .footer-tagline {
+        max-width: 100%;
+    }
+
+    .wander-footer .footer-bottom {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        gap: 8px 15px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .wander-footer .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .wander-footer .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .wander-footer .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+
+/* =========================================================
+   FOOTER DESIGN 2
+   PREMIUM / MINIMAL FOOTER
+   Used on: Community, Profile, Info Pages
+========================================================= */
+
+.wander-premium-footer {
+    width: 100%;
+    margin-top: 35px;
+
+    color: #e9f3f5;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(91,173,173,0.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #081d28,
+            #103b4a,
+            #0b2937
+        );
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+
+/* INNER */
+
+.wander-premium-footer .premium-footer-inner {
+    max-width: 1100px;
+    margin: auto;
+    padding: 22px 25px 12px;
+}
+
+
+/* TOP */
+
+.wander-premium-footer .premium-footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+
+/* BRAND */
+
+.wander-premium-footer .premium-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.wander-premium-footer .brand-mark {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+
+    font-family: Georgia, serif;
+    font-size: 0.8rem;
+}
+
+.wander-premium-footer .brand-name {
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.wander-premium-footer .premium-location {
+    color: #9eb1b7;
+    font-size: 0.68rem;
+}
+
+
+/* QUOTE */
+
+.wander-premium-footer .premium-quote-section {
+    text-align: center;
+    padding: 15px 0 12px;
+}
+
+.wander-premium-footer .quote-line {
+    display: block;
+    width: 25px;
+    height: 1px;
+
+    margin: 0 auto 8px;
+
+    background: rgba(255,255,255,0.3);
+}
+
+.wander-premium-footer .premium-quote {
+    margin: 0 auto;
+
+    max-width: 600px;
+
+    color: #edf4f5;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.wander-premium-footer .quote-author {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #829ba3;
+
+    font-size: 0.58rem;
+    letter-spacing: 1.5px;
+}
+
+
+/* NAVIGATION */
+
+.wander-premium-footer .premium-footer-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 8px 0 14px;
+}
+
+.wander-premium-footer .premium-footer-nav a {
+    color: #a9bcc1;
+
+    font-size: 0.68rem;
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.wander-premium-footer .premium-footer-nav a:hover {
+    color: #fff;
+}
+
+.wander-premium-footer .premium-footer-nav span {
+    color: #506b74;
+    font-size: 0.6rem;
+}
+
+
+/* BOTTOM */
+
+.wander-premium-footer .premium-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 10px;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    color: #718890;
+    font-size: 0.6rem;
+}
+
+.wander-premium-footer .premium-socials {
+    display: flex;
+    gap: 12px;
+}
+
+.wander-premium-footer .premium-socials i {
+    color: #819ba3;
+    font-size: 0.7rem;
+    transition: 0.2s ease;
+}
+
+.wander-premium-footer .premium-socials i:hover {
+    color: #fff;
+}
+
+
+/* =========================================================
+   DESIGN 2 — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .wander-premium-footer .premium-footer-inner {
+        padding: 18px 15px 10px;
+    }
+
+    .wander-premium-footer .premium-footer-top {
+        flex-direction: column;
+        gap: 7px;
+        text-align: center;
+    }
+
+    .wander-premium-footer .premium-location {
+        font-size: 0.62rem;
+    }
+
+    .wander-premium-footer .premium-quote-section {
+        padding: 13px 5px 10px;
+    }
+
+    .wander-premium-footer .premium-quote {
+        font-size: 0.82rem;
+    }
+
+    .wander-premium-footer .premium-footer-bottom {
+        flex-direction: column;
+        gap: 7px;
+        text-align: center;
+    }
+}

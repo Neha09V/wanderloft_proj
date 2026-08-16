@@ -1,0 +1,126 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="create-post-page">
+
+    <div class="create-post-card">
+
+        <h2 class="mb-3">
+            ✨ Edit Your Wander Moment
+        </h2>
+
+        <p class="text-muted mb-4">
+            Update your travel story and keep your memory just the way you want it.
+        </p>
+
+
+        <form
+            action="/community/<%= post._id %>?_method=PUT"
+            method="POST"
+            enctype="multipart/form-data"
+            class="post-form"
+        >
+
+            <!-- CAPTION -->
+
+            <label class="form-label">
+                Your Travel Story
+            </label>
+
+            <textarea
+                name="community[caption]"
+                required
+                class="form-control mb-4"
+                rows="6"
+                placeholder="Describe your travel memory..."
+            ><%= post.caption %></textarea>
+
+
+            <!-- LOCATION -->
+
+            <label class="form-label">
+                Location
+            </label>
+
+            <input
+                type="text"
+                name="community[location]"
+                value="<%= post.location %>"
+                placeholder="Enter location"
+                required
+                class="form-control mb-4"
+            >
+
+
+            <!-- CURRENT IMAGE -->
+
+            <label class="form-label">
+                Current Picture
+            </label>
+
+            <div class="mb-4">
+<div style="
+    width: 100%;
+    background: #f7f7f5;
+    border-radius: 18px;
+    padding: 12px;
+    margin-bottom: 24px;
+">
+
+                <img
+                    src="<%= post.image %>"
+                    alt="Current travel image"
+                    style="
+                        width: 100%;
+                        height: auto;
+                        max-height: 600px;
+                        object-fit: cover;
+                        border-radius: 16px;
+                        display: block;
+                    "
+                >
+</div>
+            </div>
+
+
+            <!-- NEW IMAGE -->
+
+            <label class="form-label">
+                Change Picture
+            </label>
+
+            <input
+                type="file"
+                name="image"
+                class="form-control mb-4"
+            >
+
+            <small class="text-muted d-block mb-4">
+                Leave this empty if you want to keep the current picture.
+            </small>
+
+
+            <!-- BUTTONS -->
+
+            <div class="d-flex gap-2">
+
+                <button
+                    type="submit"
+                    class="post-btn"
+                >
+                    Save Changes ✨
+                </button>
+
+                <a
+                    href="/community/<%= post._id %>"
+                    class="btn btn-outline-secondary rounded-pill px-4"
+                >
+                    Cancel
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

@@ -1,0 +1,336 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="info-page">
+
+    <div class="info-container">
+
+        <!-- PAGE BADGE -->
+
+        <span class="info-badge">
+            🌍 Wanderloft
+        </span>
+
+
+        <!-- PAGE TITLE -->
+
+        <h1 class="info-title">
+            <%= title %>
+        </h1>
+
+
+        <!-- PAGE CONTENT -->
+
+        <div class="info-content">
+
+
+            <!-- =========================================
+                 ABOUT
+            ========================================== -->
+
+            <% if (page === "about") { %>
+
+                <h3>
+                    Discover. Share. Wander. ✨
+                </h3>
+
+                <p>
+                    Wanderloft is a travel discovery and community platform
+                    created for people who love exploring beautiful places,
+                    discovering hidden gems, and sharing unforgettable travel
+                    moments.
+                </p>
+
+                <p>
+                    Our goal is simple — inspire people to explore more,
+                    discover meaningful destinations, and connect through
+                    travel stories.
+                </p>
+
+
+            <!-- =========================================
+                 PRIVACY
+            ========================================== -->
+
+            <% } else if (page === "privacy") { %>
+
+                <h3>
+                    Privacy Policy
+                </h3>
+
+                <p>
+                    Your privacy matters to us. Wanderloft collects only the
+                    information required to provide and improve our services.
+                </p>
+
+                <h4>
+                    Information We Collect
+                </h4>
+
+                <p>
+                    This may include your username, email address, profile
+                    information, travel posts, reviews, and other information
+                    that you voluntarily provide.
+                </p>
+
+                <h4>
+                    How We Use Information
+                </h4>
+
+                <p>
+                    We use information to operate Wanderloft, provide
+                    community features, improve the platform, and maintain
+                    security.
+                </p>
+
+
+            <!-- =========================================
+                 TERMS
+            ========================================== -->
+
+            <% } else if (page === "terms") { %>
+
+                <h3>
+                    Terms of Use
+                </h3>
+
+                <p>
+                    By using Wanderloft, you agree to use the platform
+                    responsibly and follow these terms.
+                </p>
+
+                <h4>
+                    User Content
+                </h4>
+
+                <p>
+                    You are responsible for the content you upload, including
+                    images, travel stories, reviews, and comments.
+                </p>
+
+                <h4>
+                    Responsible Use
+                </h4>
+
+                <p>
+                    Users must not upload illegal, abusive, misleading,
+                    harmful, or inappropriate content.
+                </p>
+
+
+            <!-- =========================================
+                 COOKIES
+            ========================================== -->
+
+            <% } else if (page === "cookies") { %>
+
+                <h3>
+                    Cookie Policy
+                </h3>
+
+                <p>
+                    Wanderloft may use cookies and similar technologies to
+                    maintain sessions, remember preferences, and improve the
+                    user experience.
+                </p>
+
+
+            <!-- =========================================
+                 COMMUNITY GUIDELINES
+            ========================================== -->
+
+            <% } else if (page === "community-guidelines") { %>
+
+                <h3>
+                    Community Guidelines
+                </h3>
+
+                <p>
+                    Wanderloft is built around respectful travel
+                    conversations and authentic experiences.
+                </p>
+
+                <h4>
+                    Be Respectful
+                </h4>
+
+                <p>
+                    Treat other travelers and community members with respect.
+                </p>
+
+                <h4>
+                    Share Authentic Experiences
+                </h4>
+
+                <p>
+                    Share genuine travel stories, photographs, recommendations,
+                    and experiences.
+                </p>
+
+                <h4>
+                    No Harmful Content
+                </h4>
+
+                <p>
+                    Do not post harassment, hate, spam, scams, or content
+                    intended to harm other users.
+                </p>
+
+
+            <!-- =========================================
+                 CONTENT POLICY
+            ========================================== -->
+
+            <% } else if (page === "content-policy") { %>
+
+                <h3>
+                    Content Policy
+                </h3>
+
+                <p>
+                    Content uploaded to Wanderloft should be relevant to
+                    travel, destinations, experiences, and the community.
+                </p>
+
+                <p>
+                    Wanderloft reserves the right to remove content that
+                    violates our community standards or applicable laws.
+                </p>
+
+
+            <!-- =========================================
+                 CONTACT
+            ========================================== -->
+
+            <% } else if (page === "contact") { %>
+
+                <h3>
+                    Get in Touch ✨
+                </h3>
+
+                <p>
+                    Have a question, suggestion, or simply want to say hello?
+                    We'd love to hear from you.
+                </p>
+
+
+                <div class="contact-box">
+
+
+                    <!-- CREATOR -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            👩‍💻
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Neha Kumari
+                            </strong>
+
+                            <p>
+                                Founder & Developer — Wanderloft
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            📧
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Email
+                            </strong>
+
+                            <p>
+                                support@wanderloft.xyz
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- WANDERLOFT -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            🌍
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Wanderloft
+                            </strong>
+
+                            <p>
+                                Travel • Stories • Community
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            <!-- =========================================
+                 HELP
+            ========================================== -->
+
+            <% } else if (page === "help") { %>
+
+                <h3>
+                    Help Center
+                </h3>
+
+                <h4>
+                    How do I create a post?
+                </h4>
+
+                <p>
+                    Log in to your Wanderloft account and select
+                    <strong>Share Moment</strong>
+                    from the Community section.
+                </p>
+
+                <h4>
+                    Can I edit my post?
+                </h4>
+
+                <p>
+                    Yes. You can edit your own Wander Moment after logging in.
+                </p>
+
+                <h4>
+                    Can I delete my post?
+                </h4>
+
+                <p>
+                    Yes. You can delete your own posts. Administrators can
+                    also remove content that violates community guidelines.
+                </p>
+
+
+            <% } %>
+
+
+        </div>
+
+    </div>
+
+</div>

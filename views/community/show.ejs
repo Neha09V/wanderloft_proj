@@ -1,0 +1,282 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="wander-show-page">
+
+    <div class="wander-show-card">
+
+        <!-- IMAGE -->
+        <div class="wander-image-wrapper">
+            <img
+                src="<%= post.image %>"
+                class="wander-show-img"
+                alt="travel image"
+            >
+        </div>
+
+
+        <!-- CONTENT -->
+        <div class="wander-show-content">
+
+            <!-- TITLE -->
+            <div class="wander-top">
+
+                <span class="wander-badge">
+                    🌍 Wander Moment
+                </span>
+
+                <h1 class="wander-title">
+                    Travel Story ✨
+                </h1>
+
+            </div>
+
+
+            <!-- CAPTION -->
+            <p class="wander-caption">
+                <%= post.caption %>
+            </p>
+
+
+            <!-- LOCATION -->
+            <div class="wander-location-box">
+
+                <span class="location-icon">
+                    📍
+                </span>
+
+                <span class="location-text">
+                    <%= post.location %>
+                </span>
+
+            </div>
+
+
+            <!-- AUTHOR -->
+            <div class="wander-author">
+
+                <span>
+                    Posted by
+                </span>
+
+                <strong>
+                    <%= post.author?.username || "Wander User" %>
+                </strong>
+
+            </div>
+
+
+            <!-- SOCIAL ACTIONS -->
+            <div class="community-social">
+
+                <!-- LIKE -->
+                <form
+                    action="/community/<%= post._id %>/like"
+                    method="POST"
+                    class="like-form"
+                >
+
+                    <button
+                        type="submit"
+                        class="like-btn"
+                    >
+
+                        <% if (
+                            currUser &&
+                            post.likes.some(id =>
+                                id.toString() === currUser._id.toString()
+                            )
+                        ) { %>
+
+                            ❤️
+
+                        <% } else { %>
+
+                            ♡
+
+                        <% } %>
+
+                        <span>
+                            <%= post.likes.length %>
+                        </span>
+
+                    </button>
+
+                </form>
+
+
+                <!-- COMMENT COUNT -->
+                <span class="comment-count">
+                    💬 <%= post.comments.length %>
+                </span>
+
+            </div>
+
+
+            <!-- COMMENTS -->
+            <div class="community-comments">
+
+                <h4>
+                    Comments
+                </h4>
+
+
+                <% if (post.comments.length > 0) { %>
+
+                    <% post.comments.forEach(comment => { %>
+<div class="comment-item">
+
+    <div class="comment-content">
+
+        <strong>
+            <%= comment.author?.username || "Wander User" %>
+        </strong>
+
+        <span>
+            <%= comment.text %>
+        </span>
+
+    </div>
+
+
+    <% if (
+        currUser &&
+        comment.author &&
+        (
+            comment.author._id.toString() === currUser._id.toString()
+            || currUser.isAdmin
+        )
+    ) { %>
+
+        <form
+            action="/community/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE"
+            method="POST"
+            class="comment-delete-form"
+        >
+
+            <button
+                type="submit"
+                class="comment-delete-btn"
+                onclick="return confirm('Delete this comment?')"
+            >
+                🗑️
+            </button>
+
+        </form>
+
+    <% } %>
+
+</div>
+                    <% }) %>
+
+                <% } else { %>
+
+                    <p class="text-muted">
+                        Be the first to share your thoughts ✨
+                    </p>
+
+                <% } %>
+
+
+                <!-- ADD COMMENT -->
+                <% if (currUser) { %>
+
+                    <form
+                        action="/community/<%= post._id %>/comments"
+                        method="POST"
+                        class="comment-form"
+                    >
+
+                        <input
+                            type="text"
+                            name="comment"
+                            placeholder="Write a comment..."
+                            required
+                        >
+
+                        <button type="submit">
+                            Post
+                        </button>
+
+                    </form>
+
+                <% } else { %>
+
+                    <a
+                        href="/login"
+                        class="text-muted"
+                    >
+                        Login to like or comment
+                    </a>
+
+                <% } %>
+
+            </div>
+
+
+            <!-- EXISTING ACTIONS -->
+            <div class="wander-actions">
+
+                <!-- BACK -->
+                <a
+                    href="/community"
+                    class="back-btn"
+                >
+                    ← Back to Moments
+                </a>
+
+
+                <!-- EDIT: POST CREATOR ONLY -->
+                <% if (
+                    currUser &&
+                    post.author &&
+                    post.author._id.toString() === currUser._id.toString()
+                ) { %>
+
+                    <a
+                        href="/community/<%= post._id %>/edit"
+                        class="btn btn-outline-dark rounded-pill px-4"
+                    >
+                        ✏️ Edit
+                    </a>
+
+                <% } %>
+
+
+                <!-- DELETE: CREATOR OR ADMIN -->
+                <% if (
+                    currUser &&
+                    (
+                        (
+                            post.author &&
+                            post.author._id.toString() === currUser._id.toString()
+                        )
+                        ||
+                        currUser.isAdmin
+                    )
+                ) { %>
+
+                    <form
+                        action="/community/<%= post._id %>?_method=DELETE"
+                        method="POST"
+                        style="display: inline;"
+                    >
+
+                        <button
+                            type="submit"
+                            class="btn btn-outline-danger rounded-pill px-4"
+                            onclick="return confirm('Are you sure you want to delete this Wander Moment?')"
+                        >
+                            🗑️ Delete
+                        </button>
+
+                    </form>
+
+                <% } %>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

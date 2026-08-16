@@ -1,0 +1,103 @@
+<% layout("/layouts/boilerplate") %>
+
+
+
+    <div class="d-flex justify-content-between align-items-center mb-4 mt-2">
+
+     <h2 
+    class="mb-0 ''
+    style="
+        font-family: 'Cursive'  ;
+        
+        font-size: 2rem;
+    "
+>
+    🌍 Wander Moments
+</h2>
+        <% if(currUser){ %>
+
+            <a 
+                href="/community/new" 
+                class="btn btn-dark rounded-pill px-4"
+            >
+                + Share Moment
+            </a>
+
+        <% } else { %>
+
+            <a 
+                href="/login" 
+                class="btn btn-outline-dark rounded-pill px-4"
+            >
+                Login to Post
+            </a>
+
+        <% } %>
+
+    </div>
+    <div class="container mt-4">
+
+    <!-- TOP SECTION -->
+      <p class="text-muted fs-5">
+
+        ✨ Share your unforgettable travel memories, hidden gems, dreamy sunsets, cozy stays, and moments that made your journey special.
+
+    </p>
+    </div>
+
+
+    <!-- POSTS -->
+
+    <div class="row">
+
+        <% posts.forEach(post => { %>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+
+                <a 
+                    href="/community/<%= post._id %>" 
+                    class="text-decoration-none text-dark"
+                >
+
+                    <div class="card shadow-sm h-100 border-0">
+
+                        <img 
+                            src="<%= post.image %>" 
+                            class="card-img-top"
+                            style="
+                                height: 220px;
+                                object-fit: cover;
+                                border-radius: 18px;
+                            "
+                        >
+
+                        <div class="card-body p-2">
+
+                            <p 
+                                class="mb-1"
+                                style="font-size: 0.9rem;"
+                            >
+
+                                <%= post.caption.substring(0, 70) %>...
+
+                            </p>
+
+                            <strong class="text-muted small">
+
+                                📍 <%= post.location %>
+
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+
+</div>

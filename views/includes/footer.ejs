@@ -1,0 +1,268 @@
+
+<%
+    const normalFooterPages = [
+        "/home",
+        "/listings"
+    ];
+
+    const showNormalFooter = normalFooterPages.includes(currentPath);
+%>
+
+
+<% if (showNormalFooter) { %>
+
+
+<footer class="wander-footer">
+
+    <div class="container">
+
+        <div class="footer-main">
+
+            <!-- BRAND -->
+            <div class="footer-brand">
+
+                <h2>WANDERLOFT</h2>
+
+                <p>
+                    Discover places. Share stories.
+                    Inspire journeys. ✨
+                </p>
+
+                <p class="footer-tagline">
+                    Your space to explore the world and
+                    share the moments that make every
+                    journey unforgettable.
+                </p>
+
+            </div>
+
+
+            <!-- EXPLORE -->
+            <div class="footer-column">
+
+                <h5>EXPLORE</h5>
+
+                <a href="/listings">Travel Destinations</a>
+                <a href="/listings/filter/Mountains">Mountains</a>
+                <a href="/listings/filter/Beach">Beaches</a>
+                <a href="/listings/filter/Castles">Castle</a>
+                <a href="/listings/filter/Camping">Adventure</a>
+
+            </div>
+
+
+            <!-- COMMUNITY -->
+            <div class="footer-column">
+
+                <h5>COMMUNITY</h5>
+
+                <a href="/community">Wander Moments</a>
+                <a href="/community">Travel Stories</a>
+                <a href="/community/new">Share Your Story</a>
+                <a href="/listings">Featured Moments</a>
+
+            </div>
+
+
+            <!-- SUPPORT -->
+            <div class="footer-column">
+
+                <h5>SUPPORT</h5>
+
+                <a href="/about">About Wanderloft</a>
+                <a href="/contact">Contact Us</a>
+                <a href="/help">Help Center</a>
+                <a href="/community-guidelines">
+                    Community Guidelines
+                </a>
+
+            </div>
+
+
+            <!-- LEGAL -->
+            <div class="footer-column">
+
+                <h5>LEGAL</h5>
+
+                <a href="/privacy">
+                    Privacy Policy
+                </a>
+
+                <a href="/terms">
+                    Terms of Use
+                </a>
+
+                <a href="/cookies">
+                    Cookie Policy
+                </a>
+
+                <a href="/content-policy">
+                    Content Policy
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- DIVIDER -->
+
+        <div class="footer-divider"></div>
+
+
+        <!-- BOTTOM -->
+
+        <div class="footer-bottom">
+
+            <div>
+                © 2026 Wanderloft. All rights reserved.
+            </div>
+             
+    <!-- SOCIAL ICONS -->
+    <div class="footer-socials">
+<div class="f-info-socials">
+         <i class="fa-brands fa-facebook" style="color: rgb(16, 108, 221)"></i>
+            <i class="fa-brands fa-square-instagram" style="color: rgb(178, 64, 155)"></i>
+
+            <i class="fa-brands fa-threads" style="color: rgb(66, 83, 89)"></i>
+            <i class="fa-brands fa-pinterest" style="color: rgb(229, 18, 18)"></i>
+            <i class="fa-brands fa-linkedin" style="color: rgb(64, 167, 190)"></i>
+        </div>
+        
+      </div>
+
+            <div class="footer-bottom-links">
+
+                <a href="/privacy">
+                    Privacy
+                </a>
+
+                <a href="/terms">
+                    Terms
+                </a>
+
+                <a href="/community-guidelines">
+                    Community Guidelines
+                </a>
+
+            </div>
+
+            <div class="footer-made">
+                Made for explorers ✨
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<% } else { %>
+
+<footer class="wander-premium-footer">
+
+    <div class="premium-footer-inner">
+
+        <!-- TOP -->
+        <div class="premium-footer-top">
+
+            <div class="premium-brand">
+                <span class="brand-mark">W</span>
+                <span class="brand-name">WANDERLOFT</span>
+            </div>
+
+            <div class="premium-location">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Discover. Wander. Remember.</span>
+            </div>
+
+        </div>
+
+
+        <!-- QUOTE -->
+        <div class="premium-quote-section">
+
+            <span class="quote-line"></span>
+
+            <p id="wanderQuote" class="premium-quote"></p>
+
+            <span class="quote-author">
+                — WANDERLOFT
+            </span>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+        <div class="premium-footer-nav">
+
+            <a href="/listings">Explore</a>
+
+            <span>•</span>
+
+            <a href="/community">Community</a>
+
+            <span>•</span>
+
+            <a href="/about">About</a>
+
+            <span>•</span>
+
+            <a href="/contact">Contact</a>
+
+        </div>
+
+
+        <!-- BOTTOM -->
+        <div class="premium-footer-bottom">
+
+            <span>
+                © 2026 Wanderloft
+            </span>
+
+            <div class="premium-socials">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                 <i class="fa-brands fa-threads" ></i>
+                <i class="fa-brands fa-pinterest"></i>
+                <i class="fa-brands fa-linkedin"></i>
+              
+         
+
+            </div>
+
+            <span>
+                Made for explorers ✦
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<% } %>
+
+<script>
+    const wanderQuotes = [
+        "Not all those who wander are lost.",
+        "Collect moments, not things.",
+        "Every journey begins somewhere.",
+        "Go where you feel most alive.",
+        "The world is waiting to be explored.",
+        "Leave footprints. Take memories.",
+        "Adventure begins where comfort ends.",
+        "Travel far. Discover more.",
+        "A new place. A new story.",
+        "Wander often. Wonder always.",
+        "The best stories begin with a journey.",
+        "Find your way. Make it unforgettable."
+    ];
+
+    const quoteElement = document.getElementById("wanderQuote");
+
+    if (quoteElement) {
+        const randomIndex = Math.floor(Math.random() * wanderQuotes.length);
+        quoteElement.textContent = `"${wanderQuotes[randomIndex]}"`;
+    }
+</script>
