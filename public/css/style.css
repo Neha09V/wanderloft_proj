@@ -1190,3 +1190,352 @@ body {
     flex-wrap: wrap;
   }
 }
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+:root {
+  --bg-color: #ffffff;
+  --card-color: #ffffff;
+  --navbar-color: #ffffff;
+  --input-color: #ffffff;
+  --border-color: #dddddd;
+  --primary-text: #222222;
+  --secondary-text: #666666;
+  --teal-color: #5badad;
+  --red-color: #fe424d;
+}
+
+/* DARK THEME */
+
+body.dark-mode {
+  --bg-color: #121212;
+  --card-color: #1d1d1d;
+  --navbar-color: #181818;
+  --input-color: #222222;
+  --border-color: #333333;
+  --primary-text: #eeeeee;
+  --secondary-text: #aaaaaa;
+  --teal-color: #7ccaca;
+  --red-color: #fe424d;
+
+  background-color: var(--bg-color);
+  color: var(--primary-text);
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+body.dark-mode,
+body.dark-mode .container {
+  background-color: var(--bg-color);
+  color: var(--primary-text);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+body.dark-mode .navbar,
+body.dark-mode .container-fluid {
+  background-color: var(--navbar-color) !important;
+}
+
+body.dark-mode .nav-link {
+  color: var(--primary-text) !important;
+}
+
+body.dark-mode #web-title {
+  color: var(--teal-color) !important;
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+
+body.dark-mode .dropdown-menu {
+  background-color: var(--card-color);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .dropdown-menu .nav-link {
+  color: var(--primary-text) !important;
+}
+
+body.dark-mode .dropdown-menu .nav-link:hover {
+  background-color: #292929;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+body.dark-mode .search-inp {
+  background-color: var(--input-color);
+  color: var(--primary-text);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .search-inp::placeholder {
+  color: var(--secondary-text);
+}
+
+body.dark-mode .search-inp:focus {
+  background-color: var(--input-color);
+  color: var(--primary-text);
+  border-color: var(--teal-color);
+}
+
+/* =========================
+   THEME TOGGLE
+========================= */
+
+.theme-toggle {
+  border: 1px solid #dddddd;
+  background: transparent;
+  color: #333333;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 1rem;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(15deg);
+}
+
+body.dark-mode .theme-toggle {
+  border-color: var(--border-color);
+  background-color: #222222;
+  color: #7ccaca;
+}
+
+/* =========================
+   LISTING CARDS
+========================= */
+
+body.dark-mode .listing-card {
+  background-color: transparent;
+  color: var(--primary-text);
+}
+
+body.dark-mode .listing-title,
+body.dark-mode .listing-card-text {
+  color: var(--primary-text);
+}
+
+body.dark-mode .listing-hover-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================
+   FORMS
+========================= */
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: var(--input-color);
+  color: var(--primary-text);
+  border-color: var(--border-color);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: var(--secondary-text);
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+  background-color: var(--input-color);
+  color: var(--primary-text);
+  border-color: var(--teal-color);
+}
+
+/* =========================
+   TAX TOGGLE
+========================= */
+
+body.dark-mode .tax-toggle {
+  border-color: var(--border-color);
+  color: var(--primary-text);
+}
+
+body.dark-mode .toggle-container {
+  border-color: var(--border-color);
+}
+
+/* =========================
+   COMMUNITY
+========================= */
+
+body.dark-mode .post-card {
+  background-color: var(--card-color);
+  color: var(--primary-text);
+}
+
+body.dark-mode .post-user {
+  color: var(--primary-text);
+}
+
+body.dark-mode .post-text {
+  color: var(--secondary-text);
+}
+
+body.dark-mode .post-actions {
+  color: var(--secondary-text);
+}
+
+body.dark-mode .community-social {
+  border-color: var(--border-color);
+}
+
+body.dark-mode .like-btn {
+  color: var(--primary-text);
+}
+
+body.dark-mode .comment-count {
+  color: var(--secondary-text);
+}
+
+body.dark-mode .community-comments {
+  background-color: #181818;
+}
+
+body.dark-mode .community-comments h4 {
+  color: var(--primary-text);
+}
+
+body.dark-mode .comment-item {
+  border-color: var(--border-color);
+}
+
+body.dark-mode .comment-item strong {
+  color: var(--primary-text);
+}
+
+body.dark-mode .comment-item span {
+  color: var(--secondary-text);
+}
+
+body.dark-mode .comment-form input {
+  background-color: var(--input-color);
+  color: var(--primary-text);
+  border-color: var(--border-color);
+}
+
+/* =========================
+   WANDER MOMENT
+========================= */
+
+body.dark-mode .wander-show-page,
+body.dark-mode .create-post-page {
+  background-color: var(--bg-color);
+}
+
+body.dark-mode .wander-show-card,
+body.dark-mode .create-post-card {
+  background-color: var(--card-color);
+  color: var(--primary-text);
+}
+
+body.dark-mode .wander-title {
+  color: var(--primary-text);
+}
+
+body.dark-mode .wander-caption {
+  color: var(--secondary-text);
+}
+
+body.dark-mode .wander-location-box {
+  background-color: #222222;
+  color: var(--primary-text);
+}
+
+body.dark-mode .wander-author {
+  color: var(--secondary-text);
+}
+
+body.dark-mode .form-label {
+  color: var(--primary-text);
+}
+
+/* =========================
+   INFO PAGES
+========================= */
+
+body.dark-mode .info-page {
+  background-color: var(--bg-color);
+}
+
+body.dark-mode .info-container {
+  background-color: var(--card-color);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .info-title,
+body.dark-mode .info-content h3,
+body.dark-mode .info-content h4 {
+  color: var(--primary-text);
+}
+
+body.dark-mode .info-content {
+  color: var(--secondary-text);
+}
+
+body.dark-mode .contact-item {
+  background-color: #222222;
+  border-color: var(--border-color);
+}
+
+body.dark-mode .contact-item strong {
+  color: var(--primary-text);
+}
+
+body.dark-mode .contact-item p {
+  color: var(--secondary-text);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+body.dark-mode .edit-post-btn {
+  background-color: transparent;
+  color: var(--primary-text);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .edit-post-btn:hover {
+  background-color: #eeeeee;
+  color: #121212;
+}
+
+/* =========================
+   BORDERS
+========================= */
+
+body.dark-mode hr {
+  border-color: var(--border-color);
+  opacity: 1;
+}
+
+/* =========================
+   FILTERS
+========================= */
+
+body.dark-mode .filter {
+  color: var(--primary-text);
+}
+
+body.dark-mode .scroll-btn {
+  background-color: var(--card-color);
+  border-color: var(--border-color);
+  color: var(--secondary-text);
+}
