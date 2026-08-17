@@ -754,7 +754,12 @@ body {
   .login-signup-form-inp {
     width: 44%;
   }
+.theme-toggle { 
 
+  margin-top: 2rem 1rem !important;
+  align-self: center;
+  flex-shrink: 0;
+}
   .new-edit-form-inp {
     width: 60%;
   }
@@ -848,17 +853,24 @@ body {
     margin-top: 1rem;
     margin-bottom: -0.5rem;
   }
-
+/* DARK MODE BUTTON - MOBILE */
+/* DARK MODE BUTTON - MOBILE */
+.theme-toggle {
+  margin: 1rem 1rem !important;
+  flex-shrink: 0;
+  align-self: center;
+}
   .navbar-nav {
     text-align: center;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
   }
 
   .container-fluid {
-    background-color: white;
+    background-color:white;
   }
 }
-
 @media (max-width: 550px) {
   .row-cols-adjust > * {
     flex: 0 0 auto;
