@@ -999,3 +999,318 @@
     }
 
 }
+
+/* =========================
+   WANDER MOOD
+========================= */
+
+.wander-mood-section {
+  margin: 2rem auto;
+  max-width: 1100px;
+  padding: 2rem 1rem;
+}
+
+.mood-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.mood-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 50px;
+  background: #eef7f7;
+  color: #5badad;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.mood-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #182020;
+}
+
+.mood-header p {
+  color: #737c7c;
+  margin-bottom: 0;
+}
+
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.mood-card {
+  border: 1px solid #eeeeee;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.3rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mood-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.mood-icon {
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.mood-name {
+  font-weight: 500;
+  color: #222;
+  font-size: 0.95rem;
+}
+
+.mood-card small {
+  color: #777;
+  margin-top: 4px;
+}
+
+/* SELECTED MOOD */
+
+.mood-card.active {
+  border: 2px solid #5badad;
+  box-shadow: 0 8px 20px rgba(91, 173, 173, 0.2);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .mood-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mood-header h2 {
+    font-size: 1.6rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .wander-mood-section {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .mood-grid {
+    gap: 0.7rem;
+  }
+
+  .mood-card {
+    padding: 1rem 0.5rem;
+  }
+
+}
+
+/* SELECTED MOOD */
+
+.mood-card.active {
+    border: 2px solid #5badad;
+    background: #f3fbfb;
+    box-shadow: 0 8px 20px rgba(91, 173, 173, 0.20);
+}
+
+/* =========================
+   WANDER MOOD
+========================= */
+
+.wander-mood {
+    padding: 80px 6%;
+    text-align: center;
+}
+
+.mood-heading p {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.mood-heading h2 {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+}
+
+.mood-heading span {
+    color: #777;
+}
+
+
+/* MOOD OPTIONS */
+
+.mood-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    max-width: 1100px;
+    margin: 40px auto 0;
+}
+
+.mood-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 18px;
+    padding: 24px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mood-card span {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.mood-card strong {
+    display: block;
+    font-size: 1rem;
+
+}
+
+.mood-card small {
+    display: block;
+    margin-top: 5px;
+    color: #777;
+}
+
+
+/* HOVER */
+
+.mood-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* SELECTED MOOD */
+
+.mood-card.active {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    /* border-color: #222; */
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .mood-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mood-heading h2 {
+        font-size: 2rem;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .mood-options {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+
+
+/* =========================
+   COMPACT DESKTOP LAYOUT
+========================= */
+
+@media (min-width: 769px) {
+
+    /* Hero */
+    .home-hero {
+        min-height: 30vh;
+        padding: 20px;
+    }
+
+    .home-logo {
+        width: 90px;
+        margin-bottom: 14px;
+    }
+
+    .home-eyebrow {
+        margin-bottom: 14px;
+    }
+
+    .home-hero h1 {
+        font-size: clamp(2.8rem, 5vw, 5rem);
+        margin-bottom: 18px;
+    }
+
+    .home-description {
+        margin-bottom: 25px;
+        line-height: 1.6;
+    }
+
+
+    /* Discover */
+    .home-discover {
+        padding: 75px 25px;
+    }
+
+    .discover-heading {
+        margin-bottom: 35px;
+    }
+
+    .category-card {
+        height: 290px;
+        flex: 0 0 250px;
+    }
+
+
+    /* Why Wanderloft */
+    .why-wanderloft {
+        margin: 60px auto 50px;
+    }
+
+    .why-heading {
+        margin-bottom: 30px;
+    }
+
+    .why-card {
+        padding: 25px;
+    }
+
+
+    /* Featured */
+    .featured-experiences {
+        margin: 50px auto;
+    }
+
+    .featured-card-image {
+        height: 250px;
+    }
+
+
+    /* Wander Moments */
+    .home-moments {
+        padding: 60px 5%;
+    }
+
+    .moments-heading {
+        margin-bottom: 32px;
+    }
+
+    .moment-image-wrapper {
+        height: 240px;
+    }
+
+}

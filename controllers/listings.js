@@ -235,14 +235,23 @@ module.exports.search = async (req, res) => {
   const intDec = Number.isInteger(intValue);
 
   if (allListings.length == 0 && intDec) {
-    allListings = await Listing.find({ price: { $lte: element } }).sort({
+    allListings = await Listing.find({ price: intValue }).sort({
       price: 1,
     });
     if (allListings.length != 0) {
-      res.locals.success = `Listings searched by price less than Rs ${element}!`;
+      res.locals.success = `Listings available at exactly Rs ${intValue}!`;
       res.render("listings/index.ejs", { allListings });
       return;
     }
+  }
+   allListings = await Listing.find({
+    price: { $lt: intValue }
+  }).sort({ price: -1 });
+
+  if (allListings.length !== 0) {
+    res.locals.success = `No listings at Rs ${intValue}. Showing listings below Rs ${intValue}.`;
+    res.render("listings/index.ejs", { allListings });
+    return;
   }
   if (allListings.length == 0) {
     req.flash("error", "No listings found based on your search!");
