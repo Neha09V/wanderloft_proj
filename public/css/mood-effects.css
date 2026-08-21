@@ -747,8 +747,76 @@ body.roadtrip-mood .road-light {
         opacity: 0;
     }
 }
+/* =========================
+   RANDOM FLYING PLANES
+========================= */
+
+body.roadtrip-mood .roadtrip-plane {
+
+    position: fixed;
+
+    left: -100px;
+
+    pointer-events: none;
+
+    z-index: 3;
+
+    opacity: 0;
+
+    filter:
+        drop-shadow(0 0 6px rgba(255,255,255,0.7))
+        drop-shadow(0 0 12px rgba(255,190,100,0.35));
+
+    animation-name: randomPlaneFlight;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
 
 
+/* ✈️ Flight */
+
+@keyframes randomPlaneFlight {
+
+    0% {
+        transform:
+            translateX(-120px)
+            translateY(40px)
+            rotate(8deg);
+
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 0.9;
+    }
+
+    30% {
+        transform:
+            translateX(30vw)
+            translateY(-20px)
+            rotate(-3deg);
+    }
+
+    55% {
+        transform:
+            translateX(60vw)
+            translateY(25px)
+            rotate(5deg);
+    }
+
+    85% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform:
+            translateX(110vw)
+            translateY(-30px)
+            rotate(-4deg);
+
+        opacity: 0;
+    }
+}
 /* ==================================================
    KEEP NORMAL UI ABOVE EFFECTS
 ================================================== */

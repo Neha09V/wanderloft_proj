@@ -67,7 +67,7 @@ const leaves = [
 
 
 
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 40; i++) {
 
         const leaf = document.createElement("span");
 
@@ -118,7 +118,7 @@ if (mood === "beach") {
 
     /* ✨ Water reflections */
 
-    for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 19; i++) {
 
         const shimmer = document.createElement("span");
 
@@ -142,7 +142,7 @@ if (mood === "beach") {
 
     /* 🫧 Water particles */
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 16; i++) {
 
         const bubble = document.createElement("span");
 
@@ -169,7 +169,7 @@ if (mood === "adventure") {
 
     /* Snow / mountain particles */
 
-    for (let i = 0; i < 35; i++) {
+    for (let i = 0; i < 50; i++) {
 
         const snow = document.createElement("span");
 
@@ -195,7 +195,7 @@ if (mood === "adventure") {
 
     /* Occasional birds */
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 15; i++) {
 
         const bird = document.createElement("span");
 
@@ -279,8 +279,40 @@ if (mood === "roadtrip") {
             Math.random() * 4 + "s";
 
         document.body.appendChild(light);
-    }
+    
 }
+   
 
+if (mood === "roadtrip") {
+
+    for (let i = 0; i < 6; i++) {
+
+        const plane = document.createElement("div");
+
+        plane.className = "roadtrip-plane";
+
+        plane.innerHTML = "✈️";
+
+        // Random vertical position
+        plane.style.top =
+            (8 + Math.random() * 65) + "vh";
+
+        // Random size
+        plane.style.fontSize =
+            (22 + Math.random() * 22) + "px";
+
+        // Random speed
+        plane.style.animationDuration =
+            (10 + Math.random() * 12) + "s";
+
+        // Random starting delay
+        plane.style.animationDelay =
+            (-Math.random() * 15) + "s";
+
+        document.body.appendChild(plane);
+    
+
+    }
+}}
 });
 
