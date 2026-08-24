@@ -20,6 +20,7 @@ const listingsRouter = require("./routes/listing") ;
  const reviewRouter = require("./routes/review") ;
 const userRouter=require("./routes/user")
 const profileRoutes = require("./routes/profile");
+const storyRouter = require("./routes/story");
   
 const dbUrl =process.env.ATLASDB_URL ;
    
@@ -141,6 +142,8 @@ app.use("/listings/:id/reviews", reviewRouter) ;
 app.use("/", userRouter) ;
  const communityRoutes = require("./routes/community");
 app.use("/community", communityRoutes);
+
+app.use("/stories", storyRouter);
 const pagesRoutes = require("./routes/pages");
 
 app.use("/", pagesRoutes);

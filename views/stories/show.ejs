@@ -1,0 +1,164 @@
+<% layout("/layouts/boilerplate") %>
+
+<link rel="stylesheet" href="/css/stories.css">
+
+<div class="story-page">
+
+    <article class="story-article">
+
+        <!-- TOP LABEL -->
+
+        <div class="story-topline">
+            <span>WANDER STORIES</span>
+            <span class="topline-line"></span>
+            <span>✦</span>
+        </div>
+
+
+        <!-- HEADER -->
+
+        <header class="story-header">
+
+            <h1>
+                <%= story.title %>
+            </h1>
+
+            <div class="story-meta">
+
+                <span class="story-location">
+                    📍 <%= story.location %>
+                </span>
+
+                <span class="meta-dot">•</span>
+
+                <span>
+                    By <strong><%= story.author.username %></strong>
+                </span>
+
+            </div>
+
+            <% if (story.intro) { %>
+
+                <p class="story-intro">
+                    <%= story.intro %>
+                </p>
+
+            <% } %>
+
+        </header>
+
+
+        <!-- DECORATIVE DIVIDER -->
+
+        <div class="story-opening">
+
+            <span>✦</span>
+
+        </div>
+
+
+        <!-- MAIN CONTENT -->
+
+        <section class="story-content">
+
+            <%- story.content %>
+
+        </section>
+
+
+        <!-- HIGHLIGHT -->
+
+        <% if (story.highlight) { %>
+
+            <section class="story-highlight">
+
+                <div class="highlight-mark">
+                    “
+                </div>
+
+                <div class="highlight-content">
+
+                    <span class="section-eyebrow">
+                        A MOMENT TO REMEMBER
+                    </span>
+
+                    <p>
+                        <%= story.highlight %>
+                    </p>
+
+                </div>
+
+            </section>
+
+        <% } %>
+
+
+        <!-- TRAVEL TIP -->
+
+        <% if (story.tip) { %>
+
+            <section class="story-tip">
+
+                <div class="tip-icon">
+                    💡
+                </div>
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        A LITTLE TIP
+                    </span>
+
+                    <p>
+                        <%= story.tip %>
+                    </p>
+
+                </div>
+
+            </section>
+
+        <% } %>
+
+
+        <!-- TAGS -->
+
+        <% if (story.tags && story.tags.length > 0) { %>
+
+            <div class="story-tags">
+
+                <% story.tags.forEach(tag => { %>
+
+                    <span>#<%= tag %></span>
+
+                <% }) %>
+
+            </div>
+
+        <% } %>
+
+
+        <!-- FOOTER -->
+
+        <footer class="story-footer">
+
+            <div class="footer-message">
+
+                <span>✦</span>
+
+                <p>
+                    Every journey has a story.
+                </p>
+
+                <span>✦</span>
+
+            </div>
+
+            <a href="/stories">
+                ← Explore more stories
+            </a>
+
+        </footer>
+
+    </article>
+
+</div>

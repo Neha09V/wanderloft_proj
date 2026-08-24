@@ -1,0 +1,166 @@
+<% layout("/layouts/boilerplate") %>
+
+<link rel="stylesheet" href="/css/stories.css">
+
+<div class="story-editor-page">
+
+    <div class="story-editor">
+
+        <!-- Header -->
+
+        <div class="story-editor-top">
+
+            <span class="story-eyebrow">
+                WANDER STORIES
+            </span>
+
+            <h1>Write something worth remembering.</h1>
+
+            <p>
+                Turn your journey into a story someone else will want to experience.
+            </p>
+
+        </div>
+
+
+        <form action="/stories" method="POST">
+
+
+            <!-- Title -->
+
+            <div class="editor-field title-field">
+
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Your story title..."
+                    autocomplete="off"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Location -->
+
+            <div class="location-field">
+
+                <span>📍</span>
+
+                <input
+                    type="text"
+                    name="location"
+                    placeholder="Where did this story happen?"
+                    autocomplete="off"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Introduction -->
+
+            <div class="editor-field intro-field">
+
+                <textarea
+                    name="intro"
+                    rows="2"
+                    placeholder="A short introduction to your journey..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="editor-divider"></div>
+
+
+            <!-- Main Story -->
+
+            <div class="editor-field story-field">
+
+                <textarea
+                    name="content"
+                    placeholder="Begin your story...
+
+Describe the places you discovered,
+the people you met,
+the food you tasted,
+the moments you didn't expect...
+
+Just write."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <!-- Special Moment -->
+
+            <div class="small-story-section">
+
+                <div class="section-label">
+                    ✨ The moment I'll remember
+                </div>
+
+                <textarea
+                    name="highlight"
+                    rows="3"
+                    placeholder="That one moment from the journey that stayed with you..."
+                ></textarea>
+
+            </div>
+
+
+            <!-- Travel Tip -->
+
+            <div class="small-story-section">
+
+                <div class="section-label">
+                    💡 A little tip for fellow wanderers
+                </div>
+
+                <textarea
+                    name="tip"
+                    rows="3"
+                    placeholder="Something you wish you knew before visiting..."
+                ></textarea>
+
+            </div>
+
+
+            <!-- Tags -->
+
+            <div class="tags-section">
+
+                <input
+                    type="text"
+                    name="tags"
+                    placeholder="#travel   #mountains   #adventure"
+                >
+
+            </div>
+
+
+            <!-- Bottom -->
+
+            <div class="editor-bottom">
+
+                <span class="editor-note">
+                    Your journey. Your words. 🌍
+                </span>
+
+                <button
+                    type="submit"
+                    class="publish-button"
+                >
+                    Publish Story
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

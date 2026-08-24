@@ -1,0 +1,118 @@
+<% layout("/layouts/boilerplate") %>
+
+<link rel="stylesheet" href="/css/stories.css">
+
+<div class="stories-page">
+
+    <!-- HEADER -->
+    <header class="stories-header">
+
+        <span class="stories-eyebrow">
+            ✦ WANDER STORIES ✦
+        </span>
+
+        <h1>
+            Stories worth <em>remembering.</em>
+        </h1>
+
+        <p>
+            Journeys, moments and memories from fellow wanderers.
+        </p>
+
+        <a href="/stories/new" class="write-story-btn">
+            Write a story <span>→</span>
+        </a>
+
+    </header>
+
+
+    <% if (stories.length === 0) { %>
+
+        <!-- EMPTY STATE -->
+        <section class="stories-empty">
+
+            <div>✦</div>
+
+            <h2>No stories yet.</h2>
+
+            <p>Be the first to share a journey.</p>
+
+            <a href="/stories/new">
+                Start writing →
+            </a>
+
+        </section>
+
+    <% } else { %>
+
+        <!-- STORY GRID -->
+        <section class="story-grid">
+
+            <% stories.forEach((story, index) => { %>
+
+                <article class="story-card">
+
+                    <div class="story-card-top">
+
+                        <span class="story-number">
+                            <%= String(index + 1).padStart(2, "0") %>
+                        </span>
+
+                        <span class="story-arrow">
+                            ↗
+                        </span>
+
+                    </div>
+
+
+                    <div class="story-card-content">
+
+                        <span class="story-location">
+                            📍 <%= story.location %>
+                        </span>
+
+                        <h2>
+                            <%= story.title %>
+                        </h2>
+
+                        <% if (story.intro) { %>
+
+                            <p>
+                                <%= story.intro %>
+                            </p>
+
+                        <% } %>
+
+                    </div>
+
+
+                    <div class="story-card-footer">
+
+                        <span>
+                            By <strong>
+                                <%= story.author.username %>
+                            </strong>
+                        </span>
+
+                        <a href="/stories/<%= story._id %>">
+                            Read <span>→</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+            <% }) %>
+
+        </section>
+
+    <% } %>
+
+
+    <footer class="stories-footer">
+        <span>✦</span>
+        <p>Every journey has a story.</p>
+        <span>✦</span>
+    </footer>
+
+</div>
