@@ -1003,7 +1003,7 @@
 
 .small-story-section {
 
-    padding: 18px 20px;
+    padding: 14px 18px;
 
     border-radius: 6px;
 
@@ -1037,9 +1037,9 @@
 
 .small-story-section textarea {
 
-    min-height: 60px;
+    min-height: 40px;
 
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 
@@ -1399,11 +1399,11 @@
 
     display: flex;
 
-    gap: 20px;
+    gap: 14px;
 
-    margin: 42px 0;
+    margin: 28px 0;
 
-    padding: 28px 30px;
+    padding: 18px 20px;
 
     background:
         linear-gradient(
@@ -1422,7 +1422,7 @@
 
     font-family: var(--font-display);
 
-    font-size: 3.2rem;
+    font-size: 2.5rem;
 
     line-height: .6;
 
@@ -1456,9 +1456,9 @@
 
     font-style: italic;
 
-    font-size: 1.25rem;
+    font-size: 1.08rem;
 
-    line-height: 1.5;
+    line-height: 1.45;
 
     margin: 0;
 }
@@ -1472,9 +1472,9 @@
 
     display: flex;
 
-    gap: 17px;
+    gap: 14px;
 
-    margin: 30px 0 42px;
+    margin: 24px 0 32px;
 
     padding: 22px 24px;
 
@@ -1738,4 +1738,47 @@
 
         animation: none !important;
     }
+}
+
+.story-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.story-edit-btn,
+.story-delete-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 16px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border: 1px solid rgba(32, 27, 20, 0.14);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.story-edit-btn {
+    color: #1f6f63;
+}
+
+.story-delete-btn {
+    color: #b44a38;
+}
+
+.story-edit-btn:hover {
+    background: #1f6f63;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.story-delete-btn:hover {
+    background: #b44a38;
+    color: #fff;
+    transform: translateY(-2px);
 }

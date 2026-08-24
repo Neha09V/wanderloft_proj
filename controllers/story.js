@@ -41,3 +41,43 @@ module.exports.show = async (req, res) => {
 
     res.render("stories/show.ejs", { story });
 };
+
+// Edit story form
+module.exports.editForm = async (req, res) => {
+    const story = await Story.findById(req.params.id);
+
+    res.render("stories/edit.ejs", { story });
+};
+
+// Update story
+module.exports.update = async (req, res) => {
+    const { id } = req.params;
+
+    const story = await Story.findByIdAndUpdate(
+        id,
+        req.body,
+        { new: true, runValidators: true }
+    );
+
+    if (req.body.tags) {
+        story.tags = req.body.tags
+            .split(",")
+            .map(tag => tag.trim().replace(/^#/, ""))
+            .filter(tag => tag);
+
+        await story.save();
+    }
+
+    res.redirect(`/stories/${story._id}`);
+};
+
+
+
+
+// Delete story
+module.exports.delete = async (req, res) => {
+      const {id} =req.params ;
+    await Story.findByIdAndDelete(id);
+
+    res.redirect("/stories");
+};

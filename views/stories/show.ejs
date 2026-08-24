@@ -153,6 +153,34 @@
 
             </div>
 
+
+            <% if (currUser && story.author &&  story.author._id.equals(currUser._id)) { %>
+
+    <div class="story-actions">
+
+        <a
+            href="/stories/<%= story._id %>/edit"
+            class="story-edit-btn"
+        >
+            <i class="fa-solid fa-pen"></i>
+            Edit Story
+        </a>
+
+        <form
+            action="/stories/<%= story._id %>?_method=DELETE"
+            method="POST"
+            onsubmit="return confirm('Delete this story?');"
+        >
+            <button type="submit" class="story-delete-btn">
+                <i class="fa-solid fa-trash"></i>
+                Delete
+            </button>
+        </form>
+
+    </div>
+
+<% } %>
+
             <a href="/stories">
                 ← Explore more stories
             </a>

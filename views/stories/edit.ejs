@@ -1,0 +1,160 @@
+<% layout("/layouts/boilerplate") %>
+
+<link rel="stylesheet" href="/css/stories.css">
+
+<div class="story-editor-page">
+
+    <div class="story-editor">
+
+        <div class="story-editor-top">
+
+            <span class="story-eyebrow">
+                WANDER STORIES · EDIT
+            </span>
+
+            <h1>
+                Refine your journey.
+            </h1>
+
+            <p>
+                Edit your story and keep the memories alive.
+            </p>
+
+        </div>
+
+
+        <form
+            action="/stories/<%= story._id %>?_method=PUT"
+            method="POST"
+        >
+
+            <!-- TITLE -->
+
+            <div class="editor-field title-field">
+
+                <input
+                    type="text"
+                    name="title"
+                    value="<%= story.title %>"
+                    placeholder="Story title"
+                    required
+                >
+
+            </div>
+
+
+            <!-- LOCATION -->
+
+            <div class="location-field">
+
+                <span>📍</span>
+
+                <input
+                    type="text"
+                    name="location"
+                    value="<%= story.location || '' %>"
+                    placeholder="Where did this happen?"
+                    required
+                >
+
+            </div>
+
+
+            <!-- INTRO -->
+
+            <div class="editor-field intro-field">
+
+                <textarea
+                    name="intro"
+                    placeholder="A short introduction..."
+                ><%= story.intro || '' %></textarea>
+
+            </div>
+
+
+            <div class="editor-divider">
+                ✦
+            </div>
+
+
+            <!-- STORY -->
+
+            <div class="editor-field story-field">
+
+                <textarea
+                    name="content"
+                    placeholder="Tell your story..."
+                    required
+                ><%= story.content || '' %></textarea>
+
+            </div>
+
+
+            <!-- HIGHLIGHT -->
+
+            <div class="small-story-section">
+
+                <div class="section-label">
+                    A moment to remember
+                </div>
+
+                <textarea
+                    name="highlight"
+                    placeholder="Your favourite moment..."
+                ><%= story.highlight || '' %></textarea>
+
+            </div>
+
+
+            <!-- TIP -->
+
+            <div class="small-story-section">
+
+                <div class="section-label">
+                    A little tip
+                </div>
+
+                <textarea
+                    name="tip"
+                    placeholder="Something fellow travellers should know..."
+                ><%= story.tip || '' %></textarea>
+
+            </div>
+
+
+            <!-- TAGS -->
+
+            <div class="tags-section">
+
+                <input
+                    type="text"
+                    name="tags"
+                    value="<%= story.tags ? story.tags.join(', ') : '' %>"
+                    placeholder="Tags: mountains, sunset, roadtrip"
+                >
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <div class="editor-bottom">
+
+                <span class="editor-note">
+                    ✦ Your story, your journey.
+                </span>
+
+                <button
+                    type="submit"
+                    class="publish-button"
+                >
+                    Save Changes →
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
