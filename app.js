@@ -136,6 +136,9 @@ app.get("/home", async (req, res, next) => {
 app.get("/", (req, res) => {
     res.redirect("/home");
 });
+app.get("/founder", (req, res) => {
+    res.render("founder");
+});
 app.use("/profile", profileRoutes);
 app.use("/listings", listingsRouter) ;
 app.use("/listings/:id/reviews", reviewRouter) ;
