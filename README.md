@@ -167,11 +167,15 @@ Explore destinations through categories such as:
 </p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e5f8d3fd-d970-4470-b304-00469c59c04a" width="65%" />
-   <img  src="https://github.com/user-attachments/assets/91c728c7-1c46-4a16-a15a-9cbe55e7faf2"width="48%"  />
-   <img  src="https://github.com/user-attachments/assets/ce81f024-8399-407d-aace-846437a69dd9"width="48%" />
-<img src="https://github.com/user-attachments/assets/3dea8b22-979e-41f5-865d-fa6cbd4736d5" width="48%" />
+  <img src="https://github.com/user-attachments/assets/e5f8d3fd-d970-4470-b304-00469c59c04a" width="48%" />
+   <img src="https://github.com/user-attachments/assets/91c728c7-1c46-4a16-a15a-9cbe55e7faf2"width="48%"  />
 
+ </p>
+ 
+<p align="center">
+ <img src="https://github.com/user-attachments/assets/ce81f024-8399-407d-aace-846437a69dd9" width="48%" />
+<img src="https://github.com/user-attachments/assets/3dea8b22-979e-41f5-865d-fa6cbd4736d5" width="48%" />
+<img  src="https://github.com/user-attachments/assets/b4c2852a-6b9a-4d45-9bac-25ecb4835dd4" width="48%" /
 
 </p>
 
