@@ -137,7 +137,9 @@ app.get("/", (req, res) => {
     res.redirect("/home");
 });
 app.get("/founder", (req, res) => {
-    res.render("founder");
+    res.render("founder",{
+     hideNavbar: true
+});
 });
 app.use("/profile", profileRoutes);
 app.use("/listings", listingsRouter) ;
