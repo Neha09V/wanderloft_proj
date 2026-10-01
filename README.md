@@ -27,6 +27,17 @@
 
 ---
 
+WANDERLOFT
+THE WORLD IS MORE THAN A LISTING
+
+        ◉──────────────◉──────────────◉──────────────◉
+        │              │              │              │
+      DISCOVER        DISCUSS        MOMENTS        STORIES
+        │              │              │              │
+     Listings       Community      Wander Moments   Wander Blogs
+        │              │              │              │
+   Find places     Ask & share     Show your trip   Read & dream
+
 ## ✨ About WanderLoft
 
 **WanderLoft** is a full-stack travel platform inspired by modern vacation-rental and travel communities.
