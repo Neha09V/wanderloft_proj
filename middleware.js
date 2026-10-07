@@ -12,7 +12,7 @@ const { listingSchema,reviewSchema, signupSchema, loginSchema, bookingSchema} = 
 
     if(!req.isAuthenticated()) {
         req.session.redirectUrl=req.originalUrl ;
-        req.flash("error", "You must be logged in to create a listing");
+        req.flash("error", "You must be logged in to continue");
         return res.redirect("/login") ;
       }
       next() ;

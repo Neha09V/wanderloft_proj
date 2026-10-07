@@ -1,0 +1,1039 @@
+/* =========================================================
+   WANDERLOFT — CELESTIAL JOURNEY MAP
+   Bright Mint / Solar-System Navigation
+   Uses existing EJS — no markup changes required
+========================================================= */
+
+.wl-constellation-section {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    padding: 42px 5% 48px;
+    margin-top: 12px;
+
+    color: #182020;
+
+    background:
+        radial-gradient(
+            circle at 12% 18%,
+            rgba(91, 173, 173, 0.18),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 88% 25%,
+            rgba(238, 181, 105, 0.16),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(229, 145, 125, 0.10),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #edf9f5 0%,
+            #e4f4ef 48%,
+            #f4f7ef 100%
+        );
+
+    border-top: 1px solid rgba(91, 173, 173, 0.12);
+    border-bottom: 1px solid rgba(91, 173, 173, 0.12);
+}
+
+
+/* =========================================================
+   BACKGROUND ATMOSPHERE
+========================================================= */
+
+.wl-constellation-section::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 50%,
+            rgba(255, 255, 255, 0.72),
+            transparent 46%
+        ),
+        radial-gradient(
+            ellipse at 10% 85%,
+            rgba(91, 173, 173, 0.08),
+            transparent 30%
+        );
+
+    z-index: -2;
+}
+
+
+.wl-constellation-section::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.35;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(64, 100, 94, 0.28) 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle,
+            rgba(213, 169, 77, 0.35) 1px,
+            transparent 1.5px
+        );
+
+    background-size:
+        150px 150px,
+        230px 230px;
+
+    background-position:
+        20px 30px,
+        100px 80px;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.wl-constellation-header {
+    position: relative;
+    z-index: 10;
+
+    max-width: 620px;
+
+    margin: 0 auto 24px;
+
+    text-align: center;
+}
+
+
+.wl-constellation-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 9px;
+
+    color: #397f73;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+
+.wl-constellation-eyebrow::before,
+.wl-constellation-eyebrow::after {
+    content: "✦";
+
+    color: #d5a94d;
+
+    font-size: 8px;
+
+    text-shadow:
+        0 0 7px rgba(213, 169, 77, 0.45);
+}
+
+
+.wl-constellation-header h2 {
+    margin: 0 0 8px;
+
+    font-family:
+        "Fraunces",
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+
+    line-height: 1.08;
+
+    font-weight: 500;
+
+    letter-spacing: -0.8px;
+
+    color: #202728;
+}
+
+
+.wl-constellation-header p {
+    max-width: 520px;
+
+    margin: 0 auto;
+
+    color: #77736b;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   SOLAR SYSTEM MAP
+========================================================= */
+
+.wl-constellation-map {
+    position: relative;
+
+    width: 100%;
+    max-width: 1050px;
+
+    height: 355px;
+
+    margin: 0 auto;
+
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   ORBIT 1 — LARGE HORIZONTAL
+========================================================= */
+
+.wl-constellation-map::before {
+    content: "";
+
+    position: absolute;
+
+    width: 820px;
+    height: 245px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-7deg);
+
+    border:
+        1px solid
+        rgba(57, 127, 115, 0.22);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   ORBIT 2 — DIAGONAL
+========================================================= */
+
+.wl-constellation-map::after {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 285px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(48deg);
+
+    border:
+        1px dashed
+        rgba(213, 169, 77, 0.25);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   EXTRA ORBITS
+   Created as background elliptical rings
+========================================================= */
+
+.wl-constellation-map {
+    background:
+
+        /* orbit 3 */
+        radial-gradient(
+            ellipse 280px 100px at 50% 50%,
+            transparent 68.5%,
+            rgba(91, 173, 173, 0.20) 69%,
+            transparent 69.7%
+        ),
+
+        /* orbit 4 */
+        radial-gradient(
+            ellipse 370px 130px at 50% 50%,
+            transparent 68.5%,
+            rgba(224, 170, 102, 0.18) 69%,
+            transparent 69.7%
+        ),
+
+        /* orbit 5 */
+        radial-gradient(
+            ellipse 465px 160px at 50% 50%,
+            transparent 68.5%,
+            rgba(91, 173, 173, 0.15) 69%,
+            transparent 69.7%
+        ),
+
+        /* orbit 6 */
+        radial-gradient(
+            ellipse 550px 195px at 50% 50%,
+            transparent 68.5%,
+            rgba(230, 145, 125, 0.13) 69%,
+            transparent 69.7%
+        );
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   CENTRAL SUN
+========================================================= */
+
+.wl-constellation-center {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 112px;
+    height: 112px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 28%,
+            #fffdf5,
+            transparent 34%
+        ),
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #edf4e9 58%,
+            #e8d6ae
+        );
+
+    border:
+        1px solid
+        rgba(213, 169, 77, 0.45);
+
+    box-shadow:
+        0 0 0 7px rgba(255, 255, 255, 0.45),
+        0 0 0 15px rgba(213, 169, 77, 0.07),
+        0 15px 38px rgba(65, 58, 42, 0.13),
+        0 0 55px rgba(213, 169, 77, 0.14);
+
+    z-index: 7;
+
+    text-align: center;
+}
+
+
+/* Small orbit around central sun */
+
+.wl-constellation-center::before {
+    content: "";
+
+    position: absolute;
+
+    width: 165px;
+    height: 165px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(57, 127, 115, 0.15);
+
+    transform: rotate(-20deg);
+
+    pointer-events: none;
+}
+
+
+.wl-constellation-center::after {
+    content: "";
+
+    position: absolute;
+
+    width: 205px;
+    height: 82px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(213, 169, 77, 0.13);
+
+    transform:
+        rotate(30deg);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CENTER CONTENT
+========================================================= */
+
+.wl-constellation-symbol {
+    position: relative;
+
+    font-size: 24px;
+    line-height: 1;
+
+    color: #d5a94d;
+
+    text-shadow:
+        0 0 10px rgba(213, 169, 77, 0.45);
+
+    animation:
+        wlConstellationPulse
+        4s ease-in-out infinite;
+}
+
+
+.wl-constellation-brand {
+    position: relative;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2.5px;
+
+    color: #28302e;
+}
+
+
+.wl-constellation-center small {
+    position: relative;
+
+    color: #77736b;
+
+    font-size: 7px;
+
+    letter-spacing: 0.8px;
+}
+
+
+/* =========================================================
+   FEATURE CARDS
+========================================================= */
+
+.wl-constellation-node {
+    position: absolute;
+
+    width: 190px;
+    min-height: 128px;
+
+    padding: 15px 16px;
+
+    display: block;
+
+    text-decoration: none;
+
+    color: #282d2b;
+
+    background:
+        rgba(255, 255, 252, 0.91);
+
+    border:
+        1px solid
+        rgba(62, 74, 68, 0.12);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 28px rgba(57, 50, 39, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.35s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+
+    overflow: hidden;
+
+    z-index: 5;
+}
+
+
+/* Card glow */
+
+.wl-constellation-node::before {
+    content: "";
+
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    top: -45px;
+    right: -30px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(91, 173, 173, 0.15),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* Bottom gradient accent */
+
+.wl-constellation-node::after {
+    content: "";
+
+    position: absolute;
+
+    left: 16px;
+    right: 16px;
+
+    bottom: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #5badad,
+            #d5a94d,
+            #e18a76
+        );
+
+    transform:
+        scaleX(0.25);
+
+    transform-origin: left;
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+.wl-constellation-node:hover {
+    transform: translateY(-6px);
+
+    color: #282d2b;
+
+    border-color:
+        rgba(91, 173, 173, 0.35);
+
+    box-shadow:
+        0 18px 38px rgba(57, 50, 39, 0.13),
+        0 0 0 4px rgba(91, 173, 173, 0.04);
+}
+
+
+.wl-constellation-node:hover::after {
+    transform:
+        scaleX(1);
+}
+
+
+/* =========================================================
+   CARD POSITIONS
+========================================================= */
+
+/* Discover — upper left */
+
+.wl-constellation-discover {
+    top: 5px;
+    left: 1%;
+}
+
+
+/* Create — lower left */
+
+.wl-constellation-create {
+    bottom: 5px;
+    left: 8%;
+}
+
+
+/* Discuss — upper right */
+
+.wl-constellation-discuss {
+    top: 5px;
+    right: 1%;
+}
+
+
+/* Stories — lower right */
+
+.wl-constellation-stories {
+    bottom: 5px;
+    right: 8%;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.wl-constellation-node-icon {
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 7px;
+
+    border-radius: 50%;
+
+    background: #edf6f3;
+
+    color: #397f73;
+
+    border:
+        1px solid
+        rgba(57, 127, 115, 0.12);
+
+    font-size: 12px;
+}
+
+
+/* Create */
+
+.wl-constellation-create
+.wl-constellation-node-icon {
+    background: #fbf1e8;
+    color: #c46e56;
+}
+
+
+/* Discuss */
+
+.wl-constellation-discuss
+.wl-constellation-node-icon {
+    background: #f4efdf;
+    color: #a67d27;
+}
+
+
+/* Stories */
+
+.wl-constellation-stories
+.wl-constellation-node-icon {
+    background: #edf1f0;
+    color: #536e69;
+}
+
+
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.wl-constellation-node-number {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #397f73;
+
+    font-family:
+        "Space Mono",
+        monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 1.4px;
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.wl-constellation-node h3 {
+    margin: 0 0 5px;
+
+    font-family:
+        "Fraunces",
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 16px;
+
+    line-height: 1.15;
+
+    font-weight: 500;
+
+    color: #252b29;
+}
+
+
+/* =========================================================
+   CARD DESCRIPTION
+========================================================= */
+
+.wl-constellation-node p {
+    margin: 0 0 8px;
+
+    color: #77736c;
+
+    font-size: 9px;
+
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   CARD LINK
+========================================================= */
+
+.wl-constellation-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: #397f73;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+}
+
+
+.wl-constellation-link i {
+    font-size: 7px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.wl-constellation-node:hover
+.wl-constellation-link i {
+    transform:
+        translate(3px, -2px);
+}
+
+
+/* =========================================================
+   PLANET COLORS
+========================================================= */
+
+.wl-constellation-discover {
+    --planet-color: #5badad;
+}
+
+.wl-constellation-create {
+    --planet-color: #df765b;
+}
+
+.wl-constellation-discuss {
+    --planet-color: #d5a94d;
+}
+
+.wl-constellation-stories {
+    --planet-color: #718b86;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes wlConstellationPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .wl-constellation-section {
+        padding:
+            40px 25px
+            48px;
+    }
+
+    .wl-constellation-map {
+        height: 380px;
+    }
+
+    .wl-constellation-map::before {
+        width: 680px;
+        height: 240px;
+    }
+
+    .wl-constellation-map::after {
+        width: 500px;
+        height: 290px;
+    }
+
+    .wl-constellation-node {
+        width: 175px;
+    }
+
+    .wl-constellation-discover {
+        left: 0;
+    }
+
+    .wl-constellation-create {
+        left: 3%;
+    }
+
+    .wl-constellation-discuss {
+        right: 0;
+    }
+
+    .wl-constellation-stories {
+        right: 3%;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 680px) {
+
+    .wl-constellation-section {
+        padding:
+            38px 16px
+            42px;
+    }
+
+
+    .wl-constellation-header {
+        margin-bottom: 20px;
+    }
+
+
+    .wl-constellation-header h2 {
+        font-size: 2rem;
+    }
+
+
+    .wl-constellation-header p {
+        font-size: 11px;
+    }
+
+
+    /* Vertical mobile journey */
+
+    .wl-constellation-map {
+
+        height: auto;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 11px;
+
+        padding-top: 8px;
+    }
+
+
+    /* Hide desktop orbits */
+
+    .wl-constellation-map::before,
+    .wl-constellation-map::after {
+        display: none;
+    }
+
+
+    /* Extra background orbits hidden */
+
+    .wl-constellation-map {
+        background: none;
+    }
+
+
+    /* Center */
+
+    .wl-constellation-center {
+
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        transform: none;
+
+        width: 96px;
+        height: 96px;
+
+        margin:
+            0 auto 10px;
+
+        grid-row: 1;
+    }
+
+
+    .wl-constellation-center::before {
+        width: 135px;
+        height: 135px;
+    }
+
+
+    .wl-constellation-center::after {
+        width: 155px;
+        height: 65px;
+    }
+
+
+    .wl-constellation-symbol {
+        font-size: 21px;
+    }
+
+
+    .wl-constellation-brand {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+
+    .wl-constellation-center small {
+        font-size: 6px;
+    }
+
+
+    /* Cards */
+
+    .wl-constellation-node {
+
+        position: relative;
+
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+
+        width: auto;
+
+        min-height: auto;
+
+        padding: 14px;
+
+        display: grid;
+
+        grid-template-columns:
+            34px 1fr;
+
+        column-gap: 11px;
+
+        align-items: center;
+    }
+
+
+    .wl-constellation-node-icon {
+
+        grid-row:
+            1 / span 3;
+
+        margin: 0;
+    }
+
+
+    .wl-constellation-node-number {
+        margin:
+            0 0 2px;
+    }
+
+
+    .wl-constellation-node h3 {
+
+        margin:
+            0 0 3px;
+
+        font-size: 15px;
+    }
+
+
+    .wl-constellation-node p {
+        display: none;
+    }
+
+
+    .wl-constellation-link {
+        font-size: 8px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .wl-constellation-symbol {
+        animation: none;
+    }
+
+    .wl-constellation-node {
+        transition: none;
+    }
+}

@@ -1,0 +1,508 @@
+<% layout("layouts/boilerplate") %>
+
+<% pageCSS = "discussions" %>
+
+<div class="wl-discussion-detail">
+
+    <!-- =========================================
+         BACK
+    ========================================== -->
+
+    <div class="wl-detail-navigation">
+
+        <a href="/discuss">
+            <span>←</span>
+            All discussions
+        </a>
+
+        <span class="wl-detail-navigation-label">
+            WANDERLOFT COMMUNITY
+        </span>
+
+    </div>
+
+
+    <!-- =========================================
+         QUESTION
+    ========================================== -->
+
+    <article class="wl-question">
+
+        <!-- UPVOTE RAIL -->
+
+        <aside class="wl-question-vote">
+
+            <form
+                action="/discuss/<%= discussion._id %>/vote"
+                method="POST"
+            >
+
+                <button
+                    type="submit"
+                    name="type"
+                    value="upvote"
+                    class="wl-detail-upvote"
+                    aria-label="Upvote this question"
+                    title="Upvote"
+                >
+                    ↑
+                </button>
+
+            </form>
+
+            <strong>
+                <%= discussion.upvotes.length %>
+            </strong>
+
+            <span>
+                upvotes
+            </span>
+
+        </aside>
+
+
+        <!-- QUESTION BODY -->
+
+        <div class="wl-question-main">
+
+            <div class="wl-question-label">
+
+                <span class="wl-question-label-dot"></span>
+
+                QUESTION
+
+                <% if (discussion.tags && discussion.tags.length > 0) { %>
+
+                    <span class="wl-question-label-separator">
+                        /
+                    </span>
+
+                    <%= discussion.tags[0] %>
+
+                <% } %>
+
+            </div>
+
+
+            <h1>
+                <%= discussion.title %>
+            </h1>
+
+
+            <!-- AUTHOR -->
+
+            <div class="wl-question-meta">
+
+                <div class="wl-detail-author-avatar">
+
+                    <%= discussion.author.username
+                        .charAt(0)
+                        .toUpperCase() %>
+
+                </div>
+
+                <div class="wl-detail-author-info">
+
+                    <span>
+                        Asked by
+                    </span>
+
+                    <strong>
+                        <%= discussion.author.username %>
+                    </strong>
+
+                </div>
+
+                <span class="wl-meta-separator">
+                    ·
+                </span>
+
+                <time>
+
+                    <%= discussion.createdAt.toLocaleDateString(
+                        "en-IN",
+                        {
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric"
+                        }
+                    ) %>
+
+                </time>
+
+            </div>
+<% if (currUser && 
+       (discussion.author._id.equals(currUser._id) || currUser.isAdmin)) { %>
+
+    <div class="wl-discussion-actions">
+
+        <a href="/discuss/<%= discussion._id %>/edit">
+            Edit
+        </a>
+
+        <form
+            action="/discuss/<%= discussion._id %>?_method=DELETE"
+            method="POST"
+            style="display:inline;"
+        >
+            <button
+                type="submit"
+                onclick="return confirm('Delete this discussion?')"
+            >
+                Delete
+            </button>
+        </form>
+
+    </div>
+
+<% } %>
+
+            <!-- DESCRIPTION -->
+
+            <div class="wl-question-description">
+                <%= discussion.description %>
+            </div>
+
+
+            <!-- TAGS -->
+
+            <% if (discussion.tags && discussion.tags.length > 0) { %>
+
+                <div class="wl-detail-tags">
+
+                    <% discussion.tags.forEach(tag => { %>
+
+                        <span>
+                            #<%= tag %>
+                        </span>
+
+                    <% }) %>
+
+                </div>
+
+            <% } %>
+
+
+            <!-- QUESTION FOOTER -->
+
+            <div class="wl-question-footer">
+
+                <span>
+                    Looking for advice from fellow travelers?
+                </span>
+
+                <a href="#answer-editor">
+                    Share your experience →
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- =========================================
+         ANSWERS HEADER
+    ========================================== -->
+
+    <section class="wl-answer-section">
+
+        <div class="wl-answer-heading">
+
+            <div>
+
+                <span class="wl-section-label">
+                    COMMUNITY RESPONSES
+                </span>
+
+                <h2>
+
+                    <%= answers.length %>
+
+                    <%= answers.length === 1
+                        ? "Answer"
+                        : "Answers" %>
+
+                </h2>
+
+            </div>
+
+            <span class="wl-answer-heading-note">
+                Shared by WanderLoft travelers
+            </span>
+
+        </div>
+
+
+        <!-- =====================================
+             ANSWERS
+        ====================================== -->
+
+        <div class="wl-answer-list">
+
+            <% if (answers.length === 0) { %>
+
+                <div class="wl-no-answers">
+
+                    <div class="wl-no-answer-symbol">
+                        ✦
+                    </div>
+
+                    <div>
+
+                        <span class="wl-section-label">
+                            BE THE FIRST
+                        </span>
+
+                        <h3>
+                            No answers yet.
+                        </h3>
+
+                        <p>
+                            If you've experienced this destination,
+                            your perspective could be exactly what
+                            this traveler needs.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            <% } else { %>
+
+
+                <% answers.forEach((answer, index) => { %>
+
+                    <article class="wl-answer-card">
+
+
+                        <!-- ANSWER VOTE -->
+
+                        <div class="wl-answer-vote">
+
+                            <form
+                                action="/discuss/<%= discussion._id %>/answers/<%= answer._id %>/vote"
+                                method="POST"
+                            >
+
+                                <button
+                                    type="submit"
+                                    name="type"
+                                    value="upvote"
+                                    class="wl-answer-upvote"
+                                    aria-label="Upvote this answer"
+                                    title="Upvote"
+                                >
+                                    ↑
+                                </button>
+
+                            </form>
+
+                            <strong>
+                                <%= answer.upvotes.length %>
+                            </strong>
+
+                            <span>
+                                upvotes
+                            </span>
+
+                        </div>
+
+
+                        <!-- ANSWER CONTENT -->
+
+                        <div class="wl-answer-main">
+
+                            <div class="wl-answer-topline">
+
+                                <span class="wl-answer-number">
+
+                                    ANSWER
+                                    <%= String(index + 1).padStart(2, "0") %>
+
+                                </span>
+
+
+                                <% if (index === 0) { %>
+
+                                    <span class="wl-first-answer">
+                                        EARLY RESPONSE
+                                    </span>
+
+                                <% } %>
+
+                            </div>
+
+
+                            <div class="wl-answer-content">
+
+                                <p>
+                                    <%= answer.content %>
+                                </p>
+
+                            </div>
+
+
+                            <!-- ANSWER AUTHOR -->
+
+                            <div class="wl-answer-author">
+
+                                <div class="wl-avatar">
+
+                                    <%= answer.author.username
+                                        .charAt(0)
+                                        .toUpperCase() %>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        <%= answer.author.username %>
+                                    </strong>
+
+                                    <span>
+
+                                        Shared their experience ·
+
+                                        <%= answer.createdAt.toLocaleDateString(
+                                            "en-IN",
+                                            {
+                                                day: "numeric",
+                                                month: "short",
+                                                year: "numeric"
+                                            }
+                                        ) %>
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                <% }) %>
+
+            <% } %>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         ANSWER EDITOR
+    ========================================== -->
+
+    <section
+        class="wl-answer-editor"
+        id="answer-editor"
+    >
+
+        <% if (currUser) { %>
+
+            <div class="wl-editor-header">
+
+                <div>
+
+                    <span class="wl-section-label">
+                        JOIN THE CONVERSATION
+                    </span>
+
+                    <h2>
+                        Share what you know.
+                    </h2>
+
+                    <p>
+                        Your experience could save another traveler
+                        time, money, or a wrong turn.
+                    </p>
+
+                </div>
+
+                <span class="wl-editor-mark">
+                    ✦
+                </span>
+
+            </div>
+
+
+            <form
+                action="/discuss/<%= discussion._id %>/answers"
+                method="POST"
+                class="wl-answer-form"
+            >
+
+                <textarea
+                    name="content"
+                    rows="8"
+                    placeholder="Share your travel experience, recommendation, route, warning, tip, or anything that could help..."
+                    required
+                ></textarea>
+
+
+                <div class="wl-editor-footer">
+
+                    <span>
+                        Please keep your answer useful and respectful.
+                    </span>
+
+                    <button
+                        type="submit"
+                        class="wl-publish-answer"
+                    >
+                        Post Answer
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </form>
+
+
+        <% } else { %>
+
+
+            <div class="wl-login-editor">
+
+                <div class="wl-login-editor-symbol">
+                    ✦
+                </div>
+
+                <div class="wl-login-editor-content">
+
+                    <span class="wl-section-label">
+                        JOIN THE CONVERSATION
+                    </span>
+
+                    <h2>
+                        Have something to share?
+                    </h2>
+
+                    <p>
+                        Log in to upvote this discussion, answer the
+                        question, and share your travel knowledge.
+                    </p>
+
+                    <a
+                        href="/login"
+                        class="wl-primary-action"
+                    >
+                        Log in to Answer
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        <% } %>
+
+    </section>
+
+</div>

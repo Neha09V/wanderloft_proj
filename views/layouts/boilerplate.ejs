@@ -23,7 +23,9 @@
     <link rel="stylesheet" href="/css/rating.css">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/footer.css">
-   
+   <% if (typeof pageCSS !== "undefined" && pageCSS) { %>
+    <link rel="stylesheet" href="/css/<%= pageCSS %>.css">
+<% } %>
 
     <!-- 🗺️ Leaflet CSS (MUST BE IN HEAD) -->
     <link

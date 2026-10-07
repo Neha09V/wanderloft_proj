@@ -1,0 +1,219 @@
+<% layout("layouts/boilerplate") -%>
+
+<link rel="stylesheet" href="/css/discussions.css">
+
+<div class="discussion-page">
+
+    <!-- PAGE HEADER -->
+    <div class="discussion-top">
+
+        <div>
+            <div class="discussion-eyebrow">
+                
+            </div>
+
+            <h1>Discussions</h1>
+
+            <p>
+                Ask questions, share experiences, and help fellow travellers.
+            </p>
+        </div>
+
+        <a href="<%= currUser ? '/discuss/new' : '/login' %>"
+           class="ask-question-btn">
+            + Ask Question
+        </a>
+
+    </div>
+
+
+    <!-- SEARCH / FILTER -->
+    <div class="discussion-controls">
+
+        <form action="/discuss" method="GET" class="discussion-search">
+
+            <span>⌕</span>
+
+            <input
+                type="text"
+                name="search"
+                value="<%= search || '' %>"
+                placeholder="Search discussions..."
+            >
+
+            <% if (sort) { %>
+                <input
+                    type="hidden"
+                    name="sort"
+                    value="<%= sort %>"
+                >
+            <% } %>
+
+        </form>
+
+
+        <div class="discussion-tabs">
+
+            <a
+                href="/discuss"
+                class="<%= !sort || sort === 'latest' ? 'active' : '' %>"
+            >
+                Latest
+            </a>
+
+            <a
+                href="/discuss?sort=votes"
+                class="<%= sort === 'votes' ? 'active' : '' %>"
+            >
+                Most Upvoted
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTIONS -->
+    <div class="discussion-feed">
+
+        <% if (!discussions || discussions.length === 0) { %>
+
+            <div class="discussion-empty">
+
+                <div class="empty-symbol">?</div>
+
+                <h3>No discussions found</h3>
+
+                <p>
+                    Try another search or start the first discussion.
+                </p>
+
+                <a href="/discuss/new">
+                    Ask a Question
+                </a>
+
+            </div>
+
+        <% } %>
+
+
+        <% discussions.forEach(discussion => { %>
+
+            <article class="discussion-item">
+
+                <!-- QUESTION -->
+                <div class="discussion-content">
+
+                    <a
+                        href="/discuss/<%= discussion._id %>"
+                        class="discussion-title"
+                    >
+                        <%= discussion.title %>
+                    </a>
+
+
+                    <p class="discussion-excerpt">
+                        <%= discussion.description.length > 190
+                            ? discussion.description.substring(0, 190) + "..."
+                            : discussion.description
+                        %>
+                    </p>
+
+
+                    <!-- TAGS -->
+                    <% if (discussion.tags && discussion.tags.length) { %>
+
+                        <div class="discussion-tags">
+
+                            <% discussion.tags.slice(0, 4).forEach(tag => { %>
+
+                                <span class="discussion-tag">
+                                    <%= tag %>
+                                </span>
+
+                            <% }) %>
+
+                        </div>
+
+                    <% } %>
+
+
+                    <!-- META -->
+                    <div class="discussion-meta">
+
+                        <% if (currUser) { %>
+
+                            <form
+                                action="/discuss/<%= discussion._id %>/vote"
+                                method="POST"
+                                class="inline-vote-form"
+                            >
+
+                                <button
+                                    type="submit"
+                                    name="type"
+                                    value="upvote"
+                                    class="small-upvote"
+                                    title="Upvote"
+                                >
+                                    ▲
+                                </button>
+
+                                <span>
+                                    <%= discussion.upvotes.length %>
+                                </span>
+
+                            </form>
+
+                        <% } else { %>
+
+                            <span class="small-vote-display">
+                                ▲ <%= discussion.upvotes.length %>
+                            </span>
+
+                        <% } %>
+
+
+                        <span class="meta-separator">•</span>
+
+                        <span>
+                            <%= discussion.answerCount %>
+                            <%= discussion.answerCount === 1
+                                ? "answer"
+                                : "answers"
+                            %>
+                        </span>
+
+
+                        <span class="meta-separator">•</span>
+
+                        <span>
+                            Asked by
+                            <strong>
+                                <%= discussion.author.username %>
+                            </strong>
+                        </span>
+
+
+                        <span class="meta-separator">•</span>
+
+                        <span>
+                            <%= new Date(
+                                discussion.createdAt
+                            ).toLocaleDateString("en-IN", {
+                                day: "numeric",
+                                month: "short"
+                            }) %>
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        <% }) %>
+
+    </div>
+
+</div>

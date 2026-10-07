@@ -136,10 +136,13 @@ app.get("/home", async (req, res, next) => {
 app.get("/", (req, res) => {
     res.redirect("/home");
 });
+
 app.get("/founder", (req, res) => {
-    res.render("founder",{
+    res.render("users/founder",{
      hideNavbar: true
 });
+
+
 });
 app.use("/profile", profileRoutes);
 app.use("/listings", listingsRouter) ;
@@ -150,7 +153,9 @@ app.use("/community", communityRoutes);
 
 app.use("/stories", storyRouter);
 const pagesRoutes = require("./routes/pages");
+const discussionRoutes = require("./routes/discussion");
 
+app.use("/discuss", discussionRoutes);
 app.use("/", pagesRoutes);
 
 

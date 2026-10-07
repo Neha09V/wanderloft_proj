@@ -1,0 +1,277 @@
+<% layout("layouts/boilerplate") %>
+
+<% pageCSS = "discussions" %>
+
+<div class="wl-new-discussion">
+
+    <!-- =========================================
+         BACK NAVIGATION
+    ========================================== -->
+
+    <div class="wl-new-back">
+
+        <a href="/discuss">
+            <span>←</span>
+            Back to Discussions
+        </a>
+
+    </div>
+
+
+    <div class="wl-new-layout">
+
+        <!-- =====================================
+             LEFT INTRO
+        ====================================== -->
+
+        <aside class="wl-new-sidebar">
+
+            <span class="wl-section-label">
+                START A CONVERSATION
+            </span>
+
+            <h1>
+                Ask something
+                worth answering.
+            </h1>
+
+            <p>
+                The best travel questions are specific, honest,
+                and useful to someone planning a real journey.
+            </p>
+
+
+            <div class="wl-post-guidelines">
+
+                <div class="wl-guideline">
+
+                    <span>
+                        01
+                    </span>
+
+                    <div>
+                        <strong>
+                            Be specific
+                        </strong>
+
+                        <p>
+                            Mention your destination, dates,
+                            budget, or travel style when relevant.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="wl-guideline">
+
+                    <span>
+                        02
+                    </span>
+
+                    <div>
+                        <strong>
+                            Add context
+                        </strong>
+
+                        <p>
+                            Give other travelers enough detail
+                            to understand what you actually need.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="wl-guideline">
+
+                    <span>
+                        03
+                    </span>
+
+                    <div>
+                        <strong>
+                            Help others later
+                        </strong>
+
+                        <p>
+                            A well-written question can become
+                            a useful resource for future travelers.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="wl-new-sidebar-note">
+
+                <span>✦</span>
+
+               
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================
+             FORM
+        ====================================== -->
+
+        <main class="wl-new-form-card">
+
+            <div class="wl-new-form-header">
+
+                <div>
+
+                    <span class="wl-form-kicker">
+                        NEW DISCUSSION
+                    </span>
+
+                    <h2>
+                        What would you like to know?
+                    </h2>
+
+                </div>
+
+                <span class="wl-form-mark">
+                    WL
+                </span>
+
+            </div>
+
+
+            <form
+                action="/discuss"
+                method="POST"
+                class="wl-discussion-form"
+            >
+
+                <!-- TITLE -->
+
+                <div class="wl-form-group">
+
+                    <label for="title">
+                        Question title
+                    </label>
+
+                    <span class="wl-form-hint">
+                        Keep it clear and specific.
+                    </span>
+
+                    <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        maxlength="150"
+                        placeholder="e.g. What are the best places to visit in Himachal?"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="wl-form-group">
+
+                    <label for="description">
+                        Tell us more
+                    </label>
+
+                    <span class="wl-form-hint">
+                        Add the details that will help someone give
+                        you a genuinely useful answer.
+                    </span>
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        rows="10"
+                        placeholder="Tell the community about your travel plans, preferences, budget, dates, concerns, or anything else that matters..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- TAGS -->
+
+                <div class="wl-form-group">
+
+                    <label for="tags">
+                        Topics & tags
+                    </label>
+
+                    <span class="wl-form-hint">
+                        Add a few words so travelers can discover
+                        your question later.
+                    </span>
+
+                    <input
+                        type="text"
+                        id="tags"
+                        name="tags"
+                        placeholder="e.g. Himachal, Budget Travel, Solo Travel"
+                    >
+
+                    <div class="wl-tag-helper">
+
+                      
+
+                        <span>
+                            Travel · Food · Budget · Solo · Beaches
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FORM FOOTER -->
+
+                <div class="wl-new-form-footer">
+
+                    <div class="wl-form-footer-note">
+
+                        <span class="wl-footer-check">
+                            ✓
+                        </span>
+
+                        <span>
+                            Keep the conversation helpful and respectful.
+                        </span>
+
+                    </div>
+
+
+                    <div class="wl-form-actions">
+
+                        <a
+                            href="/discuss"
+                            class="wl-cancel-action"
+                        >
+                            Cancel
+                        </a>
+
+                        <button
+                            type="submit"
+                            class="wl-publish-action"
+                        >
+                            Publish Question
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </main>
+
+    </div>
+
+</div>

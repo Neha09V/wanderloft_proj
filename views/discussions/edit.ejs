@@ -1,0 +1,20 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="discussion-edit">
+    <h1>Edit Discussion</h1>
+
+    <form action="/discuss/<%= discussion._id %>?_method=PUT" method="POST">
+
+        <input
+            type="text"
+            name="title"
+            value="<%= discussion.title %>"
+            required
+        >
+
+        <textarea name="content" required><%= discussion.content %></textarea>
+
+        <button type="submit">Save Changes</button>
+
+    </form>
+</div>
