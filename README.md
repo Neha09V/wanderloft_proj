@@ -30,13 +30,17 @@
 WANDERLOFT
 THE WORLD IS MORE THAN A LISTING
 
+    
         ◉──────────────◉──────────────◉──────────────◉
         │              │              │              │
       DISCOVER        DISCUSS        MOMENTS        STORIES
         │              │              │              │
-     Listings       Community      Wander Moments   Wander Blogs
+     Listings       Discussions     Wander Moments   Wander Blogs
         │              │              │              │
-   Find places     Ask & share     Show your trip   Read & dream
+     Explore        Ask & Answer    Share Moments    Share Stories
+     Destinations   Travel Questions Community       Travel Experiences
+
+
 
 ## ✨ About WanderLoft
 
@@ -137,21 +141,36 @@ Explore destinations through categories such as:
 
 ---
 
+
+### 💬 Wander Discussions
+
+A community-driven discussion space where travelers can ask questions, share knowledge, and exchange experiences:
+
+* ❓ Ask travel-related questions
+* 💬 Share answers and practical travel advice
+* ⬆️⬇️ Upvote and downvote discussions and answers
+* 🏷️ Organize discussions with relevant tags
+* 🔍 Search and discover useful conversations
+* ✏️ Edit your own discussions
+* 🗑️ Delete discussions with author/admin controls
+* 🌍 Connect with fellow travelers through meaningful conversations
+* 📱 Clean, responsive thread-based discussion experience
+
+
+---
 # 🎨 Application Preview
 
 
 <p align="center">
 <img  src="https://github.com/user-attachments/assets/52e97aa0-0a1b-4d57-8269-cb9aeaf8f2f9" width="48%"/>
+ <img  src="https://github.com/user-attachments/assets/3612f443-b56e-4bee-ab3f-f71c7593c70a" width="48%" />
+  <img src="https://github.com/user-attachments/assets/fd4f4ce8-bfa9-4cfc-81dd-9b0e9da68014" width="48%" />
  <img  src="https://github.com/user-attachments/assets/9a979346-ee4b-4f5b-936e-9bc703e36aaa"width="48%" />
  <img src="https://github.com/user-attachments/assets/41b6a0e8-9fa0-4f9d-bd44-1526850d0304"width="48%" />
  <img src="https://github.com/user-attachments/assets/30464d73-1e0b-41ca-a6d0-0dfd84932dbf"width="48%"  />
 <img src="https://github.com/user-attachments/assets/3433505b-cb54-4f7a-866d-c39af5d3ec4a"width="48%"  />
 <img  src="https://github.com/user-attachments/assets/ccfa4510-6eb4-42da-a729-640050b8997e"width="48%"  />
 <img src="https://github.com/user-attachments/assets/c394f7c8-157c-42f8-a1f5-5692171ffbfe"width="48%"  />
-
-
-
- 
 
 
 </p>
@@ -161,7 +180,12 @@ Explore destinations through categories such as:
   <img src="https://github.com/user-attachments/assets/be789018-6682-4675-bf86-4f834e5ffc16" width="48%" />
 </p>
 
+<p align="center">
 
+<img src="https://github.com/user-attachments/assets/e3dd9e64-11e3-43c0-bd2e-5ffe7a472e57" width="48%" />
+
+
+</p>
 <p align="center">
   <img src="https://github.com/user-attachments/assets/74f42b41-b1e4-48f9-b595-a5d85a749bcd" width="48%" />
   <img src="https://github.com/user-attachments/assets/4abcd4ca-30e4-4f9c-8634-614563a2761e" width="48%" />
@@ -189,6 +213,7 @@ Explore destinations through categories such as:
 <img  src="https://github.com/user-attachments/assets/b4c2852a-6b9a-4d45-9bac-25ecb4835dd4" width="48%" /
 
 </p>
+
 
 ---
 
